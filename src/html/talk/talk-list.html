@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <title>List Talks</title>
+    
+    <meta name="description" content="API RESTful lungojs client example">
+    <meta name="author" content="Adolfo Sanz De Diego (@asanzdiego)">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cleartype" content="on">
+
+    <link rel="stylesheet" type="text/css" href="../../lib/lungo/lungo.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="../../lib/lungo/lungo.icon.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="../../lib/lungo/lungo.theme.css" media="all" />
+
+</head>
+<body class="app">
+    <section id="main" data-transition="">
+        <header data-title="Talks List" class="extended"></header>
+        <footer>
+            <nav>
+                <a href="talk-list.html" data-icon="list" class="active"></a>
+                <a href="talk-add.html" data-icon="plus"></a>
+            </nav>
+        </footer>
+        <article id="main-article" class="active list indented scroll">
+            <div class="form">
+                <fieldset data-icon="search">
+                    <input type="search" placeholder="Search...">
+                </fieldset>
+            </div>
+            <ul id="talks">
+            </ul>
+        </article>
+    </section>
+
+    <!-- Lungo - Dependencies -->
+    <script src="../../lib/quo/quo.js"></script>
+    <script src="../../lib/lungo/lungo.js"></script>
+    <!-- Lungo - Sandbox App -->
+    <script>
+        Lungo.init({});
+    </script>
+    <!-- Moment - Dependencies -->
+    <script src="../../lib/moment/moment.js"></script>
+    <!-- Others - Dependencies -->
+    <script src="../../js/util.js"></script>
+    <script src="../../js/talk/talk-list.js"></script>
+</body>
+</html>
