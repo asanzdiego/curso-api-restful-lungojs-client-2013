@@ -71,7 +71,7 @@ var util_ajaxGet = function(url, data, callback) {
         console.log("json=", json);
         callback(json);
     }, 'json');
-}
+};
 
 // AJAX - Post
 var util_ajaxPost = function(url, data, callback) {
@@ -81,7 +81,7 @@ var util_ajaxPost = function(url, data, callback) {
         console.log("json=", json);
         callback(json);
     }, 'json');
-}
+};
 
 // AJAX - Put
 var util_ajaxPut = function(url, data, callback) {
@@ -91,7 +91,7 @@ var util_ajaxPut = function(url, data, callback) {
         console.log("json=", json);
         callback(json);
     }, 'json');
-}
+};
 
 // AJAX - Delete
 var util_ajaxDelete = function(url, data, callback) {
@@ -101,4 +101,4 @@ var util_ajaxDelete = function(url, data, callback) {
         console.log("json=", json);
         callback(json);
     }, 'json');
-}
+};
