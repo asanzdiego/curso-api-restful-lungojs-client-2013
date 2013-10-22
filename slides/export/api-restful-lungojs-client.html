@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc" />
+  <meta name="description" content="Cliente API REST con LungoJS" />
+  <meta name="author" content="Adolfo Sanz De Diego" />
+  <meta name="copyright" content="Cliente API REST con LungoJS - Adolfo Sanz De Diego -  Octubre 2013" /> 
+  <title>Cliente API REST con LungoJS</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; }
+code > span.dt { color: #204a87; }
+code > span.dv { color: #0000cf; }
+code > span.bn { color: #0000cf; }
+code > span.fl { color: #0000cf; }
+code > span.ch { color: #4e9a06; }
+code > span.st { color: #4e9a06; }
+code > span.co { color: #8f5902; font-style: italic; }
+code > span.ot { color: #8f5902; }
+code > span.al { color: #ef2929; }
+code > span.fu { color: #000000; }
+code > span.er { font-weight: bold; }
+  </style>
+</head>
+<body>
+<header>
+<h1 class="title">Cliente API REST con LungoJS</h1>
+<h2 class="author">Adolfo Sanz De Diego</h2>
+<h3 class="date">Octubre 2013</h3>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#acerca-de"><span class="toc-section-number">1</span> Acerca de</a><ul>
+<li><a href="#el-gul"><span class="toc-section-number">1.1</span> El GUL</a></li>
+<li><a href="#dónde-encontrarnos"><span class="toc-section-number">1.2</span> ¿Dónde encontrarnos?</a></li>
+<li><a href="#adolfo-sanz-de-diego"><span class="toc-section-number">1.3</span> Adolfo Sanz De Diego</a></li>
+<li><a href="#mi-cv-resumido"><span class="toc-section-number">1.4</span> Mi CV resumido</a></li>
+<li><a href="#hackalover"><span class="toc-section-number">1.5</span> Hackalover</a></li>
+<li><a href="#donde-encontrarme"><span class="toc-section-number">1.6</span> ¿Donde encontrarme?</a></li>
+<li><a href="#licencia"><span class="toc-section-number">1.7</span> Licencia</a></li>
+</ul></li>
+<li><a href="#apis-para-qué"><span class="toc-section-number">2</span> APIs ¿Para qué?</a><ul>
+<li><a href="#haber-venido"><span class="toc-section-number">2.1</span> Haber venido</a></li>
+<li><a href="#aplicación"><span class="toc-section-number">2.2</span> Aplicación</a></li>
+<li><a href="#plataforma"><span class="toc-section-number">2.3</span> Plataforma</a></li>
+<li><a href="#quien-expone-apis"><span class="toc-section-number">2.4</span> ¿Quien expone APIs?</a></li>
+<li><a href="#exponlas-tú"><span class="toc-section-number">2.5</span> Exponlas tú</a></li>
+<li><a href="#exponlas-tú-1"><span class="toc-section-number">2.6</span> Exponlas tú</a></li>
+<li><a href="#exponlas-tú-2"><span class="toc-section-number">2.7</span> Exponlas tú</a></li>
+</ul></li>
+<li><a href="#apis-restful"><span class="toc-section-number">3</span> APIs RESTful</a><ul>
+<li><a href="#qué-es-rest"><span class="toc-section-number">3.1</span> ¿Qué es REST?</a></li>
+<li><a href="#ejemplo-api"><span class="toc-section-number">3.2</span> Ejemplo API</a></li>
+<li><a href="#manejo-de-errores"><span class="toc-section-number">3.3</span> Manejo de errores</a></li>
+<li><a href="#por-qué-rest"><span class="toc-section-number">3.4</span> ¿Por qué REST?</a></li>
+</ul></li>
+<li><a href="#clientes-multidispositivo"><span class="toc-section-number">4</span> Clientes multidispositivo</a><ul>
+<li><a href="#distintos-dispositivos"><span class="toc-section-number">4.1</span> Distintos dispositivos</a></li>
+<li><a href="#distintos-os"><span class="toc-section-number">4.2</span> Distintos OS</a></li>
+<li><a href="#distintos-os-1"><span class="toc-section-number">4.3</span> Distintos OS</a></li>
+<li><a href="#distintos-navegadores"><span class="toc-section-number">4.4</span> Distintos navegadores</a></li>
+<li><a href="#socorro"><span class="toc-section-number">4.5</span> ¡¡¡Socorro!!!</a></li>
+<li><a href="#al-rescate"><span class="toc-section-number">4.6</span> Al rescate</a></li>
+<li><a href="#graceful-degradation"><span class="toc-section-number">4.7</span> Graceful Degradation</a></li>
+<li><a href="#graceful-degradation-1"><span class="toc-section-number">4.8</span> Graceful Degradation</a></li>
+<li><a href="#progressive-enhancement"><span class="toc-section-number">4.9</span> Progressive Enhancement</a></li>
+<li><a href="#phonegap"><span class="toc-section-number">4.10</span> Phonegap</a></li>
+</ul></li>
+<li><a href="#lungo.js"><span class="toc-section-number">5</span> Lungo.js</a><ul>
+<li><a href="#competidores"><span class="toc-section-number">5.1</span> Competidores</a></li>
+<li><a href="#por-qué-lungo"><span class="toc-section-number">5.2</span> ¿Por qué Lungo?</a></li>
+<li><a href="#licencia-gpl"><span class="toc-section-number">5.3</span> Licencia GPL</a></li>
+<li><a href="#española"><span class="toc-section-number">5.4</span> Española</a></li>
+<li><a href="#pues-no"><span class="toc-section-number">5.5</span> Pues no</a></li>
+<li><a href="#me-gusta"><span class="toc-section-number">5.6</span> Me gusta</a></li>
+<li><a href="#aburrido"><span class="toc-section-number">5.7</span> Aburrido</a></li>
+</ul></li>
+<li><a href="#código"><span class="toc-section-number">6</span> Código</a><ul>
+<li><a href="#aplausos"><span class="toc-section-number">6.1</span> Aplausos</a></li>
+<li><a href="#directorios"><span class="toc-section-number">6.2</span> Directorios</a></li>
+<li><a href="#jsutil.js"><span class="toc-section-number">6.3</span> js/util.js</a></li>
+<li><a href="#htmltalktalk-add.html"><span class="toc-section-number">6.4</span> html/talk/talk-add.html</a></li>
+<li><a href="#htmltalktalk-add.html-1"><span class="toc-section-number">6.5</span> html/talk/talk-add.html</a></li>
+<li><a href="#jstalktalk-add.js"><span class="toc-section-number">6.6</span> js/talk/talk-add.js</a></li>
+<li><a href="#htmltalktalk-edit.html"><span class="toc-section-number">6.7</span> html/talk/talk-edit.html</a></li>
+<li><a href="#htmltalktalk-edit.html-1"><span class="toc-section-number">6.8</span> html/talk/talk-edit.html</a></li>
+<li><a href="#htmltalktalk-edit.html-2"><span class="toc-section-number">6.9</span> html/talk/talk-edit.html</a></li>
+<li><a href="#jstalktalk-get.js"><span class="toc-section-number">6.10</span> js/talk/talk-get.js</a></li>
+<li><a href="#jstalktalk-update.js"><span class="toc-section-number">6.11</span> js/talk/talk-update.js</a></li>
+<li><a href="#jstalktalk-delete.js"><span class="toc-section-number">6.12</span> js/talk/talk-delete.js</a></li>
+<li><a href="#htmltalktalk-list.html"><span class="toc-section-number">6.13</span> html/talk/talk-list.html</a></li>
+<li><a href="#htmltalktalk-list.html-1"><span class="toc-section-number">6.14</span> html/talk/talk-list.html</a></li>
+<li><a href="#htmltalktalk-list.html-2"><span class="toc-section-number">6.15</span> html/talk/talk-list.html</a></li>
+<li><a href="#jstalktalk-list.js"><span class="toc-section-number">6.16</span> js/talk/talk-list.js</a></li>
+</ul></li>
+<li><a href="#demo"><span class="toc-section-number">7</span> Demo</a></li>
+<li><a href="#alguna-pregunta"><span class="toc-section-number">8</span> ¿Alguna pregunta?</a></li>
+</ul>
+</nav>
+<h1 id="acerca-de"><a href="#acerca-de"><span class="header-section-number">1</span> Acerca de</a></h1>
+<h2 id="el-gul"><a href="#el-gul"><span class="header-section-number">1.1</span> El GUL</a></h2>
+<ul>
+<li>El GUL es el <strong>Grupo de Usuarios de Linux de la UC3M</strong>.</li>
+<li>Grupo de personas con inquietudes en torno a la informática.</li>
+<li>Con la idea común de la utilización y promoción del <strong>Software Libre</strong>.</li>
+<li>Quedamos de vez en cuando y organizamos actividades sobre todo esto.</li>
+<li>El punto de unión es la <strong>lista de correo</strong> que está abierta a todo el mundo.</li>
+</ul>
+<h2 id="dónde-encontrarnos"><a href="#dónde-encontrarnos"><span class="header-section-number">1.2</span> ¿Dónde encontrarnos?</a></h2>
+<ul>
+<li>Twitter: <a href="http://twitter.com/guluc3m">@guluc3m</a></li>
+<li>Lista: <a href="mailto:gul@gul.uc3m.es">gul@gul.uc3m.es</a></li>
+<li>Ftp: <a href="ftp://ftp.gul.uc3m.es">ftp://ftp.gul.uc3m.es</a></li>
+<li>Web: <a href="http://www.gul.uc3m.es">http://www.gul.uc3m.es</a></li>
+<li>Podcast: <a href="http://holamundo.gul.es/">http://holamundo.gul.es/</a></li>
+<li>Blog: <a href="http://planeta.gul.uc3m.es/">http://planeta.gul.uc3m.es/</a></li>
+<li>Linkedin: <a href="http://www.linkedin.com/groups?gid=3451836">http://www.linkedin.com/groups?gid=3451836</a></li>
+</ul>
+<h2 id="adolfo-sanz-de-diego"><a href="#adolfo-sanz-de-diego"><span class="header-section-number">1.3</span> Adolfo Sanz De Diego</a></h2>
+<figure>
+<img src="../img/avatar-asanzdiego.jpg" alt="asanzdiego" /><figcaption>asanzdiego</figcaption>
+</figure>
+<h2 id="mi-cv-resumido"><a href="#mi-cv-resumido"><span class="header-section-number">1.4</span> Mi CV resumido</a></h2>
+<ul>
+<li><p><strong>Antiguo programador web JEE</strong></p></li>
+<li><p>Hoy en día:</p>
+<ul>
+<li><p><strong>Profesor de FP de informática</strong>:</p>
+<pre><code>- Hardware, Sistemas Operativos, Redes, Programación</code></pre></li>
+<li><p><strong>Formador Freelance</strong>:</p>
+<pre><code>- Java, Android
+- JavaScript, jQuery
+- JSF, Spring, Hibernate y Groovy&amp;Grails</code></pre></li>
+<li><p>Programo en mis tiempos libres.</p></li>
+</ul></li>
+</ul>
+<h2 id="hackalover"><a href="#hackalover"><span class="header-section-number">1.5</span> Hackalover</a></h2>
+<ul>
+<li><strong>Meetup</strong>: <a href="http://www.meetup.com/Hackathon-Lovers/">http://www.meetup.com/Hackathon-Lovers/</a></li>
+</ul>
+<figure>
+<img src="../img/hackathon-lovers-logo-300.png" alt="HackathonLovers" /><figcaption>HackathonLovers</figcaption>
+</figure>
+<ul>
+<li><strong>Twitter</strong>: <a href="http://twitter.com/HackathonLovers">http://twitter.com/HackathonLovers</a></li>
+</ul>
+<figure>
+<img src="../img/hackathon-lovers-logo-cuadrado.png" alt="HackathonLovers" /><figcaption>HackathonLovers</figcaption>
+</figure>
+<h2 id="donde-encontrarme"><a href="#donde-encontrarme"><span class="header-section-number">1.6</span> ¿Donde encontrarme?</a></h2>
+<ul>
+<li><p>Mi nick: <strong>asanzdiego</strong></p></li>
+<li><p>AboutMe: <strong><a href="http://about.me/asanzdiego">http://about.me/asanzdiego</a></strong></p>
+<ul>
+<li><a href="http://github.com/asanzdiego/">GitHub</a></li>
+<li><a href="http://twitter.com/asanzdiego">Twitter</a></li>
+<li><a href="http://asanzdiego.blogspot.com.es">Blog</a></li>
+<li><a href="http://www.linkedin.com/in/asanzdiego">LinkedIn</a></li>
+<li><a href="http://plus.google.com/118434794733307240711">Google+</a></li>
+</ul></li>
+</ul>
+<h2 id="licencia"><a href="#licencia"><span class="header-section-number">1.7</span> Licencia</a></h2>
+<ul>
+<li>Estas <strong>transparencias</strong> están bajo una licencia:
+<ul>
+<li><a href="http://creativecommons.org/licenses/by-sa/3.0/es/">Creative Commons Reconocimiento-CompartirIgual 3.0</a></li>
+</ul></li>
+<li>El <strong>código fuente</strong> de los programas están bajo una licencia:
+<ul>
+<li><a href="http://www.viti.es/gnu/licenses/gpl.html">GPL 3.0</a></li>
+</ul></li>
+</ul>
+<h1 id="apis-para-qué"><a href="#apis-para-qué"><span class="header-section-number">2</span> APIs ¿Para qué?</a></h1>
+<h2 id="haber-venido"><a href="#haber-venido"><span class="header-section-number">2.1</span> Haber venido</a></h2>
+<figure>
+<img src="../img/julio-iglesias-haber-venido.png" alt="Haber venido" /><figcaption>Haber venido</figcaption>
+</figure>
+<h2 id="aplicación"><a href="#aplicación"><span class="header-section-number">2.2</span> Aplicación</a></h2>
+<figure>
+<img src="../img/esquema-api-rest-09.png" alt="Esquema APIs RESTful 9" /><figcaption>Esquema APIs RESTful 9</figcaption>
+</figure>
+<h2 id="plataforma"><a href="#plataforma"><span class="header-section-number">2.3</span> Plataforma</a></h2>
+<figure>
+<img src="../img/esquema-api-rest-09.png" alt="Esquema APIs RESTful 9" /><figcaption>Esquema APIs RESTful 9</figcaption>
+</figure>
+<h2 id="quien-expone-apis"><a href="#quien-expone-apis"><span class="header-section-number">2.4</span> ¿Quien expone APIs?</a></h2>
+<figure>
+<img src="../img/apis-3.png" alt="APIs 3" /><figcaption>APIs 3</figcaption>
+</figure>
+<h2 id="exponlas-tú"><a href="#exponlas-tú"><span class="header-section-number">2.5</span> Exponlas tú</a></h2>
+<figure>
+<img src="../img/cup.jpg" alt="Ejemlo Taza" /><figcaption>Ejemlo Taza</figcaption>
+</figure>
+<h2 id="exponlas-tú-1"><a href="#exponlas-tú-1"><span class="header-section-number">2.6</span> Exponlas tú</a></h2>
+<figure>
+<img src="../img/cup-relaxing.jpg" alt="Ejemlo Taza Relaxing Cup" /><figcaption>Ejemlo Taza Relaxing Cup</figcaption>
+</figure>
+<h2 id="exponlas-tú-2"><a href="#exponlas-tú-2"><span class="header-section-number">2.7</span> Exponlas tú</a></h2>
+<figure>
+<img src="../img/cup-relaxing-guay.jpg" alt="Ejemlo Taza Relaxing Cup Guay" /><figcaption>Ejemlo Taza Relaxing Cup Guay</figcaption>
+</figure>
+<h1 id="apis-restful"><a href="#apis-restful"><span class="header-section-number">3</span> APIs RESTful</a></h1>
+<h2 id="qué-es-rest"><a href="#qué-es-rest"><span class="header-section-number">3.1</span> ¿Qué es REST?</a></h2>
+<ul>
+<li><p>Una <strong>URL</strong> (Uniform Resource Locator) representa un <strong>recurso</strong>.</p></li>
+<li><p>Se puede acceder al recurso o modificarlo mediante los <strong>métodos del protocolo HTTP</strong>:</p>
+<pre><code>- POST, GET, PUT, DELETE</code></pre></li>
+</ul>
+<h2 id="ejemplo-api"><a href="#ejemplo-api"><span class="header-section-number">3.2</span> Ejemplo API</a></h2>
+<ul>
+<li><p><strong>http://myhost.com/talk</strong></p>
+<ul>
+<li>GET &gt; Devuelve todas las charlas.</li>
+<li>POST &gt; Crear una nueva charla.</li>
+</ul></li>
+<li><p><strong>http://myhost.com/talk/123</strong></p>
+<ul>
+<li>GET &gt; Devuelve la charla con id=123</li>
+<li>PUT &gt; Actualiza la charla con id=123</li>
+<li>DELETE &gt; Borra la charla con id=123</li>
+</ul></li>
+</ul>
+<h2 id="manejo-de-errores"><a href="#manejo-de-errores"><span class="header-section-number">3.3</span> Manejo de errores</a></h2>
+<ul>
+<li><p><strong>Se pueden utilizar los errores del protocolo HTTP</strong>:</p>
+<ul>
+<li>200 Successful</li>
+<li>201 Created</li>
+<li>202 Accepted</li>
+<li>301 Moved Permanently</li>
+<li>400 Bad Request</li>
+<li>401 Unauthorised</li>
+<li>402 Payment Required</li>
+<li>403 Forbidden</li>
+<li>404 Not Found</li>
+<li>405 Method Not Allowed</li>
+<li>500 Internal Server Error</li>
+<li>501 Not Implemented</li>
+</ul></li>
+</ul>
+<h2 id="por-qué-rest"><a href="#por-qué-rest"><span class="header-section-number">3.4</span> ¿Por qué REST?</a></h2>
+<ul>
+<li>Es <strong>más sencillo</strong> (tanto la API como la implementación).</li>
+<li>Es <strong>más rápido</strong> (peticiones más lijeras que se pueden cachear).</li>
+<li>Es <strong>multiformato</strong> (HTML, XML, JSON, etc.).</li>
+<li>Se complementa muy bien con <strong>AJAX</strong>.</li>
+</ul>
+<h1 id="clientes-multidispositivo"><a href="#clientes-multidispositivo"><span class="header-section-number">4</span> Clientes multidispositivo</a></h1>
+<h2 id="distintos-dispositivos"><a href="#distintos-dispositivos"><span class="header-section-number">4.1</span> Distintos dispositivos</a></h2>
+<figure>
+<img src="../img/distintos-dispositivos.jpg" alt="Distintos dispositivos" /><figcaption>Distintos dispositivos</figcaption>
+</figure>
+<h2 id="distintos-os"><a href="#distintos-os"><span class="header-section-number">4.2</span> Distintos OS</a></h2>
+<figure>
+<img src="../img/distintos-so-moviles-1.png" alt="Distintos Sistemas Operativos 1" /><figcaption>Distintos Sistemas Operativos 1</figcaption>
+</figure>
+<h2 id="distintos-os-1"><a href="#distintos-os-1"><span class="header-section-number">4.3</span> Distintos OS</a></h2>
+<figure>
+<img src="../img/distintos-so-moviles-2.png" alt="Distintos Sistemas Operativos 2" /><figcaption>Distintos Sistemas Operativos 2</figcaption>
+</figure>
+<h2 id="distintos-navegadores"><a href="#distintos-navegadores"><span class="header-section-number">4.4</span> Distintos navegadores</a></h2>
+<figure>
+<img src="../img/distintos-navegadores.png" alt="Distintos navegadores" /><figcaption>Distintos navegadores</figcaption>
+</figure>
+<h2 id="socorro"><a href="#socorro"><span class="header-section-number">4.5</span> ¡¡¡Socorro!!!</a></h2>
+<figure>
+<img src="../img/simpson-socorro.png" alt="Simpson Socorro" /><figcaption>Simpson Socorro</figcaption>
+</figure>
+<h2 id="al-rescate"><a href="#al-rescate"><span class="header-section-number">4.6</span> Al rescate</a></h2>
+<figure>
+<img src="../img/al-rescate.png" alt="Al rescate" /><figcaption>Al rescate</figcaption>
+</figure>
+<h2 id="graceful-degradation"><a href="#graceful-degradation"><span class="header-section-number">4.7</span> Graceful Degradation</a></h2>
+<figure>
+<img src="../img/responsive-design-graceful-degradation.png" alt="Graceful Degradation" /><figcaption>Graceful Degradation</figcaption>
+</figure>
+<h2 id="graceful-degradation-1"><a href="#graceful-degradation-1"><span class="header-section-number">4.8</span> Graceful Degradation</a></h2>
+<figure>
+<img src="../img/responsive-design-graceful-degradation-mal.png" alt="Graceful Degradation Mal" /><figcaption>Graceful Degradation Mal</figcaption>
+</figure>
+<h2 id="progressive-enhancement"><a href="#progressive-enhancement"><span class="header-section-number">4.9</span> Progressive Enhancement</a></h2>
+<figure>
+<img src="../img/responsive-design-progressive-enhancement.png" alt="Progressive Enhancement" /><figcaption>Progressive Enhancement</figcaption>
+</figure>
+<h2 id="phonegap"><a href="#phonegap"><span class="header-section-number">4.10</span> Phonegap</a></h2>
+<figure>
+<img src="../img/phonegap-build.png" alt="Phonegap" /><figcaption>Phonegap</figcaption>
+</figure>
+<h1 id="lungo.js"><a href="#lungo.js"><span class="header-section-number">5</span> Lungo.js</a></h1>
+<h2 id="competidores"><a href="#competidores"><span class="header-section-number">5.1</span> Competidores</a></h2>
+<ul>
+<li><a href="http://jqtjs.com/">jQTouch</a></li>
+<li><a href="http://www.sencha.com/products/touch/">Sencha Touch</a></li>
+<li><a href="http://jquerymobile.com/">jQueryMobile</a></li>
+<li><a href="http://eightmedia.github.io/hammer.js/">hammer.js</a></li>
+</ul>
+<h2 id="por-qué-lungo"><a href="#por-qué-lungo"><span class="header-section-number">5.2</span> ¿Por qué Lungo?</a></h2>
+<figure>
+<img src="../img/nubes-por-que-lungo.png" alt="Nubes Lungo" /><figcaption>Nubes Lungo</figcaption>
+</figure>
+<h2 id="licencia-gpl"><a href="#licencia-gpl"><span class="header-section-number">5.3</span> Licencia GPL</a></h2>
+<figure>
+<img src="../img/i-love-gpl.png" alt="I Love GPL" /><figcaption>I Love GPL</figcaption>
+</figure>
+<h2 id="española"><a href="#española"><span class="header-section-number">5.4</span> Española</a></h2>
+<figure>
+<img src="../img/i-love-espania.png" alt="I Love Espania" /><figcaption>I Love Espania</figcaption>
+</figure>
+<h2 id="pues-no"><a href="#pues-no"><span class="header-section-number">5.5</span> Pues no</a></h2>
+<figure>
+<img src="../img/julio-iglesias-equivocado.png" alt="Julio Iglesias Equivocado" /><figcaption>Julio Iglesias Equivocado</figcaption>
+</figure>
+<h2 id="me-gusta"><a href="#me-gusta"><span class="header-section-number">5.6</span> Me gusta</a></h2>
+<figure>
+<img src="../img/nubes-a-que-huelen.png" alt="A que huelen las nubes" /><figcaption>A que huelen las nubes</figcaption>
+</figure>
+<h2 id="aburrido"><a href="#aburrido"><span class="header-section-number">5.7</span> Aburrido</a></h2>
+<figure>
+<img src="../img/gato-aburrido.png" alt="Gato Aburrido" /><figcaption>Gato Aburrido</figcaption>
+</figure>
+<h1 id="código"><a href="#código"><span class="header-section-number">6</span> Código</a></h1>
+<h2 id="aplausos"><a href="#aplausos"><span class="header-section-number">6.1</span> Aplausos</a></h2>
+<figure>
+<img src="../img/aplausos.gif" alt="Aplausos ANimados" /><figcaption>Aplausos ANimados</figcaption>
+</figure>
+<h2 id="directorios"><a href="#directorios"><span class="header-section-number">6.2</span> Directorios</a></h2>
+<ul>
+<li><p>Puedes usar la estructura de directorios que quieras.</p></li>
+<li><p>Yo he usado esta:</p>
+<ul>
+<li><strong>html</strong>: los HTML con una carpeta para cada entidad del domino</li>
+<li><strong>js</strong>: los JS con una carpeta para cada entidad del domino</li>
+<li><p><strong>lib</strong>: carpeta con las dependencias a otros proyectos</p>
+<ul>
+<li>Lungo depende de Quo que es una librería de los mismos auotres de 'tipo' jQuery enfocada a móviles</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="jsutil.js"><a href="#jsutil.js"><span class="header-section-number">6.3</span> js/util.js</a></h2>
+<pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="co">// Searh</span>
+<span class="fu">$$</span>(<span class="st">&#39;document&#39;</span>).<span class="fu">ready</span>(<span class="kw">function</span>(){
+    <span class="ot">Lungo</span>.<span class="fu">dom</span>(<span class="st">&#39;input[type=search]&#39;</span>).<span class="fu">on</span>(<span class="st">&#39;keyup&#39;</span>, ...);
+});
+
+<span class="co">// Date format</span>
+<span class="kw">var</span> util_dateFormat = <span class="st">&quot;DD/MM/YYYY HH:mm:ss&quot;</span>;
+
+<span class="co">// Server URL</span>
+<span class="kw">var</span> util_server_url = <span class="st">&quot;http://localhost:3000&quot;</span>;
+
+<span class="co">// Error Notification</span>
+<span class="kw">var</span> util_errorNotification = <span class="kw">function</span>(message, error) {
+    <span class="ot">Lungo</span>.<span class="ot">Notification</span>.<span class="fu">error</span>(message, <span class="st">&quot;&quot;</span>, <span class="st">&quot;warning-sign&quot;</span>, <span class="dv">2</span>);
+};
+
+<span class="co">// Métodos REST</span>
+<span class="kw">var</span> util_ajaxGet = <span class="kw">function</span>(url, data, callback) {
+    <span class="ot">$$</span>.<span class="fu">get</span>(util_server_url+url, data, ..., <span class="st">&#39;json&#39;</span>);
+};
+<span class="kw">var</span> util_ajaxPost = <span class="kw">function</span>(url, data, callback) {...};
+<span class="kw">var</span> util_ajaxPut = <span class="kw">function</span>(url, data, callback) {...};
+<span class="kw">var</span> util_ajaxDelete = <span class="kw">function</span>(url, data, callback) {...};</code></pre>
+<h2 id="htmltalktalk-add.html"><a href="#htmltalktalk-add.html"><span class="header-section-number">6.4</span> html/talk/talk-add.html</a></h2>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;body</span><span class="ot"> class=</span><span class="st">&quot;app&quot;</span><span class="kw">&gt;</span>
+ <span class="kw">&lt;section</span><span class="ot"> id=</span><span class="st">&quot;main&quot;</span><span class="ot"> data-transition=</span><span class="st">&quot;&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;header</span><span class="ot"> data-title=</span><span class="st">&quot;Add Talk&quot;</span><span class="ot"> class=</span><span class="st">&quot;extended&quot;</span><span class="kw">&gt;&lt;/header&gt;</span>
+  <span class="kw">&lt;footer&gt;</span>
+   <span class="kw">&lt;nav&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;talk-list.html&quot;</span><span class="ot"> data-icon=</span><span class="st">&quot;list&quot;</span><span class="kw">&gt;&lt;/a&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;talk-add.html&quot;</span><span class="ot"> data-icon=</span><span class="st">&quot;plus&quot;</span><span class="ot"> class=</span><span class="st">&quot;active&quot;</span><span class="kw">&gt;&lt;/a&gt;</span>
+   <span class="kw">&lt;/nav&gt;</span>
+  <span class="kw">&lt;/footer&gt;</span>
+  <span class="kw">&lt;article</span><span class="ot"> id=</span><span class="st">&quot;main-article&quot;</span><span class="ot"> class=</span><span class="st">&quot;active list&quot;</span><span class="kw">&gt;</span>
+   <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;form&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;fieldset&gt;</span>
+     <span class="kw">&lt;label&gt;</span>NAME:<span class="kw">&lt;/label&gt;&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;talkName&quot;</span> <span class="kw">/&gt;</span>
+    <span class="kw">&lt;/fieldset&gt;</span>
+    ...
+    <span class="kw">&lt;fieldset&gt;</span>
+     <span class="kw">&lt;label&gt;</span>NUM:<span class="kw">&lt;/label&gt;&lt;input</span><span class="ot"> type=</span><span class="st">&quot;number&quot;</span><span class="ot"> id=</span><span class="st">&quot;talkNum&quot;</span> <span class="kw">/&gt;</span>
+    <span class="kw">&lt;/fieldset&gt;</span>
+   <span class="kw">&lt;/div&gt;</span>
+   <span class="kw">&lt;div&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#addTalk&quot;</span><span class="ot"> id=</span><span class="st">&quot;addTalk&quot;</span><span class="ot"> class=</span><span class="st">&quot;button&quot;</span><span class="kw">&gt;</span>Add<span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;talk-list.html&quot;</span><span class="ot"> class=</span><span class="st">&quot;button cancel&quot;</span><span class="kw">&gt;</span>Cancel<span class="kw">&lt;/a&gt;</span>
+   <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;/article&gt;</span>
+ <span class="kw">&lt;/section&gt;</span>
+<span class="er"> &lt;script&gt;Lungo.init({});&lt;/script&gt;</span>
+<span class="kw">&lt;/body&gt;</span></code></pre>
+<h2 id="htmltalktalk-add.html-1"><a href="#htmltalktalk-add.html-1"><span class="header-section-number">6.5</span> html/talk/talk-add.html</a></h2>
+<figure>
+<img src="../img/demo-talk-add.png" alt="Add Talk" /><figcaption>Add Talk</figcaption>
+</figure>
+<h2 id="jstalktalk-add.js"><a href="#jstalktalk-add.js"><span class="header-section-number">6.6</span> js/talk/talk-add.js</a></h2>
+<pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="fu">$$</span>(<span class="st">&#39;#addTalk&#39;</span>).<span class="fu">tap</span>(<span class="kw">function</span>(){
+
+ <span class="kw">var</span> data = {
+  <span class="dt">talkName</span>:        <span class="fu">$$</span>(<span class="st">&quot;#talkName&quot;</span>).<span class="fu">val</span>(),
+  <span class="dt">talkDate</span>:        <span class="fu">util_stringToDate</span>(<span class="fu">$$</span>(<span class="st">&quot;#talkDate&quot;</span>).<span class="fu">val</span>()),
+  <span class="dt">talkSpeaker</span>:     <span class="fu">$$</span>(<span class="st">&quot;#talkSpeaker&quot;</span>).<span class="fu">val</span>(),
+  <span class="dt">talkSpeakerMail</span>: <span class="fu">$$</span>(<span class="st">&quot;#talkSpeakerMail&quot;</span>).<span class="fu">val</span>(),
+  <span class="dt">talkPoints</span>:      <span class="fu">$$</span>(<span class="st">&quot;#talkPoints&quot;</span>).<span class="fu">val</span>()
+ };
+
+ <span class="co">// send data to server</span>
+ <span class="fu">util_ajaxPost</span>(<span class="st">&#39;/talk&#39;</span>, data, <span class="kw">function</span>(json) {
+  <span class="kw">if</span>(!json || <span class="ot">json</span>.<span class="fu">error</span>) {
+   <span class="fu">util_errorNotification</span>(<span class="st">&#39;ERROR adding talk&#39;</span>, <span class="ot">json</span>.<span class="fu">error</span>);
+  } <span class="kw">else</span> {
+   <span class="fu">util_successNotification</span>(<span class="st">&#39;Talk saved&#39;</span>, <span class="kw">function</span>() {
+    <span class="ot">window</span>.<span class="ot">location</span>.<span class="fu">replace</span>(<span class="st">&#39;talk-list.html&#39;</span>);
+   });
+  }
+ });
+
+});</code></pre>
+<h2 id="htmltalktalk-edit.html"><a href="#htmltalktalk-edit.html"><span class="header-section-number">6.7</span> html/talk/talk-edit.html</a></h2>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;body</span><span class="ot"> class=</span><span class="st">&quot;app&quot;</span><span class="kw">&gt;</span>
+ <span class="kw">&lt;section</span><span class="ot"> id=</span><span class="st">&quot;main&quot;</span><span class="ot"> data-transition=</span><span class="st">&quot;&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;header</span><span class="ot"> data-title=</span><span class="st">&quot;Edit Talk&quot;</span><span class="ot"> class=</span><span class="st">&quot;extended&quot;</span><span class="kw">&gt;&lt;/header&gt;</span>
+  <span class="kw">&lt;nav</span><span class="ot"> data-control=</span><span class="st">&quot;groupbar&quot;</span><span class="kw">&gt;</span>
+   <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#editTalkArticle&quot;</span> <span class="er">...</span><span class="kw">&gt;</span>Edit<span class="kw">&lt;/a&gt;</span>
+   <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#deleteTalkArticle&quot;</span> <span class="er">...</span><span class="kw">&gt;</span>Delete<span class="kw">&lt;/a&gt;</span>
+  <span class="kw">&lt;/nav&gt;</span>
+  <span class="kw">&lt;footer&gt;</span>
+   ...
+  <span class="kw">&lt;/footer&gt;</span>
+  <span class="kw">&lt;article</span><span class="ot"> id=</span><span class="st">&quot;editTalkArticle&quot;</span><span class="ot"> class=</span><span class="st">&quot;list indented scroll&quot;</span><span class="kw">&gt;</span>
+   ...
+  <span class="kw">&lt;/article&gt;</span>
+  <span class="kw">&lt;article</span><span class="ot"> id=</span><span class="st">&quot;deleteTalkArticle&quot;</span><span class="ot"> class=</span><span class="st">&quot;list indented scroll&quot;</span><span class="kw">&gt;</span>
+   ...
+  <span class="kw">&lt;/article&gt;</span>
+ <span class="kw">&lt;/section&gt;</span>
+<span class="er"> &lt;script&gt;Lungo.init({});&lt;/script&gt;</span>
+<span class="kw">&lt;/body&gt;</span></code></pre>
+<h2 id="htmltalktalk-edit.html-1"><a href="#htmltalktalk-edit.html-1"><span class="header-section-number">6.8</span> html/talk/talk-edit.html</a></h2>
+<figure>
+<img src="../img/demo-talk-edit.png" alt="Edit Talk" /><figcaption>Edit Talk</figcaption>
+</figure>
+<h2 id="htmltalktalk-edit.html-2"><a href="#htmltalktalk-edit.html-2"><span class="header-section-number">6.9</span> html/talk/talk-edit.html</a></h2>
+<figure>
+<img src="../img/demo-talk-delete.png" alt="Delete Talk" /><figcaption>Delete Talk</figcaption>
+</figure>
+<h2 id="jstalktalk-get.js"><a href="#jstalktalk-get.js"><span class="header-section-number">6.10</span> js/talk/talk-get.js</a></h2>
+<pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="fu">$$</span>(<span class="st">&#39;document&#39;</span>).<span class="fu">ready</span>(<span class="kw">function</span>(){
+ 
+ <span class="kw">var</span> talkId = util_urlParams[<span class="st">&quot;talkId&quot;</span>];
+ 
+ <span class="co">// get data from server</span>
+ <span class="fu">util_ajaxGet</span>(<span class="st">&#39;/talk/&#39;</span>+talkId, {}, <span class="kw">function</span>(json) {
+  <span class="kw">if</span>(!json || <span class="ot">json</span>.<span class="fu">error</span>) {
+   <span class="fu">util_errorNotification</span>(<span class="st">&#39;ERROR retrieving talk&#39;</span>, <span class="ot">json</span>.<span class="fu">error</span>);
+  } <span class="kw">else</span> {
+   <span class="kw">var</span> talk = json;
+   <span class="ot">console</span>.<span class="fu">log</span>(<span class="st">&#39;Talk retrieved&#39;</span>);
+   <span class="fu">drawTalk</span>(talk);
+  }
+ });
+ 
+ <span class="co">// draw data</span>
+ <span class="kw">var</span> drawTalk = <span class="kw">function</span>(talk) {
+  <span class="fu">$$</span>(<span class="st">&quot;#talkName&quot;</span>).<span class="fu">val</span>(<span class="ot">talk</span>.<span class="fu">talkName</span>);
+  <span class="fu">$$</span>(<span class="st">&quot;#talkDate&quot;</span>).<span class="fu">val</span>(<span class="fu">util_dateToString</span>(<span class="ot">talk</span>.<span class="fu">talkDate</span>));
+  <span class="fu">$$</span>(<span class="st">&quot;#talkSpeaker&quot;</span>).<span class="fu">val</span>(<span class="ot">talk</span>.<span class="fu">talkSpeaker</span>);
+  <span class="fu">$$</span>(<span class="st">&quot;#talkSpeakerMail&quot;</span>).<span class="fu">val</span>(<span class="ot">talk</span>.<span class="fu">talkSpeakerMail</span>);
+  <span class="fu">$$</span>(<span class="st">&quot;#talkPoints&quot;</span>).<span class="fu">val</span>(<span class="st">&quot;&quot;</span>+<span class="ot">talk</span>.<span class="fu">talkPoints</span>);
+ };
+
+});</code></pre>
+<h2 id="jstalktalk-update.js"><a href="#jstalktalk-update.js"><span class="header-section-number">6.11</span> js/talk/talk-update.js</a></h2>
+<pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="fu">$$</span>(<span class="st">&#39;#saveTalk&#39;</span>).<span class="fu">tap</span>(<span class="kw">function</span>(){
+
+ <span class="kw">var</span> talkId = util_urlParams[<span class="st">&quot;talkId&quot;</span>];
+
+ <span class="kw">var</span> data = {
+  <span class="dt">talkName</span>:        <span class="fu">$$</span>(<span class="st">&quot;#talkName&quot;</span>).<span class="fu">val</span>(),
+  <span class="dt">talkDate</span>:        <span class="fu">util_stringToDate</span>(<span class="fu">$$</span>(<span class="st">&quot;#talkDate&quot;</span>).<span class="fu">val</span>()),
+  <span class="dt">talkSpeaker</span>:     <span class="fu">$$</span>(<span class="st">&quot;#talkSpeaker&quot;</span>).<span class="fu">val</span>(),
+  <span class="dt">talkSpeakerMail</span>: <span class="fu">$$</span>(<span class="st">&quot;#talkSpeakerMail&quot;</span>).<span class="fu">val</span>(),
+  <span class="dt">talkPoints</span>:   <span class="fu">$$</span>(<span class="st">&quot;#talkPoints&quot;</span>).<span class="fu">val</span>()
+ };
+
+ <span class="co">// send data to server</span>
+ <span class="fu">util_ajaxPut</span>(<span class="st">&#39;/talk/&#39;</span>+talkId, data, <span class="kw">function</span>(json) {
+  <span class="kw">if</span>(!json || <span class="ot">json</span>.<span class="fu">error</span>) {
+   <span class="fu">util_errorNotification</span>(<span class="st">&#39;ERROR saving talk&#39;</span>, <span class="ot">json</span>.<span class="fu">error</span>);
+  } <span class="kw">else</span> {
+   <span class="fu">util_successNotification</span>(<span class="st">&#39;Talk saved&#39;</span>, <span class="kw">function</span>() {
+    <span class="ot">window</span>.<span class="ot">location</span>.<span class="fu">replace</span>(<span class="st">&#39;talk-list.html&#39;</span>);
+   });
+  }
+ });
+
+});</code></pre>
+<h2 id="jstalktalk-delete.js"><a href="#jstalktalk-delete.js"><span class="header-section-number">6.12</span> js/talk/talk-delete.js</a></h2>
+<pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="fu">$$</span>(<span class="st">&#39;#deleteTalk&#39;</span>).<span class="fu">tap</span>(<span class="kw">function</span>(){
+
+ <span class="kw">var</span> talkId = util_urlParams[<span class="st">&quot;talkId&quot;</span>];
+
+ <span class="co">// send data to server</span>
+ <span class="fu">util_ajaxDelete</span>(<span class="st">&#39;/talk/&#39;</span>+talkId, {}, <span class="kw">function</span>(json) {
+  <span class="kw">if</span>(!json || <span class="ot">json</span>.<span class="fu">error</span>) {
+   <span class="fu">util_errorNotification</span>(<span class="st">&#39;ERROR deleting talk&#39;</span>, <span class="ot">json</span>.<span class="fu">error</span>);
+  } <span class="kw">else</span> {
+   <span class="fu">util_successNotification</span>(<span class="st">&#39;Talk deleted&#39;</span>, <span class="kw">function</span>() {
+    <span class="ot">window</span>.<span class="ot">location</span>.<span class="fu">replace</span>(<span class="st">&#39;talk-list.html&#39;</span>);
+   });
+  }
+ }); 
+
+});</code></pre>
+<h2 id="htmltalktalk-list.html"><a href="#htmltalktalk-list.html"><span class="header-section-number">6.13</span> html/talk/talk-list.html</a></h2>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;body</span><span class="ot"> class=</span><span class="st">&quot;app&quot;</span><span class="kw">&gt;</span>
+ <span class="kw">&lt;section</span><span class="ot"> id=</span><span class="st">&quot;main&quot;</span><span class="ot"> data-transition=</span><span class="st">&quot;&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;header</span><span class="ot"> data-title=</span><span class="st">&quot;Talks List&quot;</span><span class="ot"> class=</span><span class="st">&quot;extended&quot;</span><span class="kw">&gt;&lt;/header&gt;</span>
+  <span class="kw">&lt;footer&gt;</span>
+   <span class="kw">&lt;nav&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;talk-list.html&quot;</span><span class="ot"> data-icon=</span><span class="st">&quot;list&quot;</span><span class="ot"> class=</span><span class="st">&quot;active&quot;</span><span class="kw">&gt;&lt;/a&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;talk-add.html&quot;</span><span class="ot"> data-icon=</span><span class="st">&quot;plus&quot;</span><span class="kw">&gt;&lt;/a&gt;</span>
+   <span class="kw">&lt;/nav&gt;</span>
+  <span class="kw">&lt;/footer&gt;</span>
+  <span class="kw">&lt;article</span><span class="ot"> id=</span><span class="st">&quot;main-article&quot;</span><span class="ot"> class=</span><span class="st">&quot;active list indented scroll&quot;</span><span class="kw">&gt;</span>
+   <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;form&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;fieldset</span><span class="ot"> data-icon=</span><span class="st">&quot;search&quot;</span><span class="kw">&gt;</span>
+     <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;search&quot;</span><span class="ot"> placeholder=</span><span class="st">&quot;Search...&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;/fieldset&gt;</span>
+   <span class="kw">&lt;/div&gt;</span>
+   <span class="kw">&lt;ul</span><span class="ot"> id=</span><span class="st">&quot;talks&quot;</span><span class="kw">&gt;&lt;/ul&gt;</span>
+  <span class="kw">&lt;/article&gt;</span>
+ <span class="kw">&lt;/section&gt;</span>
+<span class="er"> &lt;script&gt;Lungo.init({});&lt;/script&gt;</span>
+<span class="kw">&lt;/body&gt;</span></code></pre>
+<h2 id="htmltalktalk-list.html-1"><a href="#htmltalktalk-list.html-1"><span class="header-section-number">6.14</span> html/talk/talk-list.html</a></h2>
+<figure>
+<img src="../img/demo-talk-list.png" alt="Talks List" /><figcaption>Talks List</figcaption>
+</figure>
+<h2 id="htmltalktalk-list.html-2"><a href="#htmltalktalk-list.html-2"><span class="header-section-number">6.15</span> html/talk/talk-list.html</a></h2>
+<figure>
+<img src="../img/demo-talk-list-search.png" alt="Talks List Search" /><figcaption>Talks List Search</figcaption>
+</figure>
+<h2 id="jstalktalk-list.js"><a href="#jstalktalk-list.js"><span class="header-section-number">6.16</span> js/talk/talk-list.js</a></h2>
+<pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="fu">$$</span>(<span class="st">&#39;document&#39;</span>).<span class="fu">ready</span>(<span class="kw">function</span>(){
+
+ <span class="co">// get data from server</span>
+ <span class="fu">util_ajaxGet</span>(<span class="st">&#39;/talk&#39;</span>, {}, <span class="kw">function</span>(json) {
+  <span class="kw">if</span>(!json || <span class="ot">json</span>.<span class="fu">error</span>) {
+   <span class="fu">util_errorNotification</span>(<span class="st">&#39;ERROR retrieving talks&#39;</span>, <span class="ot">json</span>.<span class="fu">error</span>);
+  } <span class="kw">else</span> {
+   <span class="kw">var</span> talks = json;
+   <span class="ot">console</span>.<span class="fu">log</span>(<span class="ot">talks</span>.<span class="fu">length</span>+<span class="st">&#39; talks retrieved&#39;</span>);
+   <span class="fu">drawTalks</span>(talks);
+  }
+ });
+ 
+ <span class="co">// draw data</span>
+ <span class="kw">var</span> drawTalks = <span class="kw">function</span>(talks) {
+  <span class="kw">for</span> (<span class="kw">var</span> i = <span class="dv">0</span>; i &lt; <span class="ot">talks</span>.<span class="fu">length</span>; i++) {
+   <span class="kw">var</span> talk = talks[i];
+   <span class="fu">$$</span>(<span class="st">&quot;#talks&quot;</span>).<span class="fu">append</span>(
+    <span class="st">&#39;&lt;li data-action=&quot;search&quot; class=&quot;selectable&quot;&gt;&#39;</span>+
+     <span class="st">&#39;&lt;a href=&quot;talk-edit.html?talkId=&#39;</span>+<span class="ot">talk</span>.<span class="fu">_id</span>+<span class="st">&#39;&quot;&gt;&#39;</span>+
+      <span class="st">&#39;&lt;strong&gt;&#39;</span>+<span class="ot">talk</span>.<span class="fu">talkName</span>+<span class="st">&#39;&lt;/strong&gt;&#39;</span>+
+      <span class="st">&#39;&lt;small&gt;&#39;</span>+<span class="ot">talk</span>.<span class="fu">talkSpeaker</span>+<span class="st">&#39;&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&#39;</span>);
+  }
+ };
+
+});</code></pre>
+<h1 id="demo"><a href="#demo"><span class="header-section-number">7</span> Demo</a></h1>
+<h1 id="alguna-pregunta"><a href="#alguna-pregunta"><span class="header-section-number">8</span> ¿Alguna pregunta?</a></h1>
+</body>
+</html>
