@@ -82,11 +82,11 @@
 
 ## Aplicación
 
-![Esquema APIs RESTful 9](../img/esquema-api-rest-09.png)
+![Aplicación](../img/esquema-api-rest-01.png)
 
 ## Plataforma
 
-![Esquema APIs RESTful 9](../img/esquema-api-rest-09.png)
+![Plataforma](../img/esquema-api-rest-09.png)
 
 ## ¿Quien expone APIs?
 
