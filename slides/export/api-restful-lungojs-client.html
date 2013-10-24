@@ -50,19 +50,29 @@ code > span.er { font-weight: bold; }
 <li><a href="#licencia"><span class="toc-section-number">1.7</span> Licencia</a></li>
 </ul></li>
 <li><a href="#apis-para-qué"><span class="toc-section-number">2</span> APIs ¿Para qué?</a><ul>
-<li><a href="#haber-venido"><span class="toc-section-number">2.1</span> Haber venido</a></li>
-<li><a href="#aplicación"><span class="toc-section-number">2.2</span> Aplicación</a></li>
-<li><a href="#plataforma"><span class="toc-section-number">2.3</span> Plataforma</a></li>
-<li><a href="#quien-expone-apis"><span class="toc-section-number">2.4</span> ¿Quien expone APIs?</a></li>
-<li><a href="#exponlas-tú"><span class="toc-section-number">2.5</span> Exponlas tú</a></li>
-<li><a href="#exponlas-tú-1"><span class="toc-section-number">2.6</span> Exponlas tú</a></li>
-<li><a href="#exponlas-tú-2"><span class="toc-section-number">2.7</span> Exponlas tú</a></li>
+<li><a href="#aplicación-estándar"><span class="toc-section-number">2.1</span> Aplicación estándar</a></li>
+<li><a href="#introducimos-api"><span class="toc-section-number">2.2</span> Introducimos API</a></li>
+<li><a href="#separación-roles"><span class="toc-section-number">2.3</span> Separación Roles</a></li>
+<li><a href="#y-ahora-qué"><span class="toc-section-number">2.4</span> ¿Y ahora qué?</a></li>
+<li><a href="#servicios-externos"><span class="toc-section-number">2.5</span> Servicios externos</a></li>
+<li><a href="#apps-clientes"><span class="toc-section-number">2.6</span> Apps clientes</a></li>
+<li><a href="#apps-de-servicios"><span class="toc-section-number">2.7</span> Apps de servicios</a></li>
+<li><a href="#apps-mixtas"><span class="toc-section-number">2.8</span> Apps mixtas</a></li>
+<li><a href="#plataforma"><span class="toc-section-number">2.9</span> Plataforma</a></li>
+<li><a href="#quien-expone-apis"><span class="toc-section-number">2.10</span> ¿Quien expone APIs?</a></li>
+<li><a href="#quien-expone-apis-1"><span class="toc-section-number">2.11</span> ¿Quien expone APIs?</a></li>
+<li><a href="#quien-expone-apis-2"><span class="toc-section-number">2.12</span> ¿Quien expone APIs?</a></li>
+<li><a href="#exponlas-tú"><span class="toc-section-number">2.13</span> Exponlas tú</a></li>
+<li><a href="#exponlas-tú-1"><span class="toc-section-number">2.14</span> Exponlas tú</a></li>
+<li><a href="#exponlas-tú-2"><span class="toc-section-number">2.15</span> Exponlas tú</a></li>
 </ul></li>
 <li><a href="#apis-restful"><span class="toc-section-number">3</span> APIs RESTful</a><ul>
 <li><a href="#qué-es-rest"><span class="toc-section-number">3.1</span> ¿Qué es REST?</a></li>
 <li><a href="#ejemplo-api"><span class="toc-section-number">3.2</span> Ejemplo API</a></li>
 <li><a href="#manejo-de-errores"><span class="toc-section-number">3.3</span> Manejo de errores</a></li>
 <li><a href="#por-qué-rest"><span class="toc-section-number">3.4</span> ¿Por qué REST?</a></li>
+<li><a href="#rest-vs-restful"><span class="toc-section-number">3.5</span> REST vs RESTful</a></li>
+<li><a href="#rest-vs-restful-1"><span class="toc-section-number">3.6</span> REST vs RESTful</a></li>
 </ul></li>
 <li><a href="#clientes-multidispositivo"><span class="toc-section-number">4</span> Clientes multidispositivo</a><ul>
 <li><a href="#distintos-dispositivos"><span class="toc-section-number">4.1</span> Distintos dispositivos</a></li>
@@ -79,8 +89,8 @@ code > span.er { font-weight: bold; }
 <li><a href="#lungo.js"><span class="toc-section-number">5</span> Lungo.js</a><ul>
 <li><a href="#competidores"><span class="toc-section-number">5.1</span> Competidores</a></li>
 <li><a href="#por-qué-lungo"><span class="toc-section-number">5.2</span> ¿Por qué Lungo?</a></li>
-<li><a href="#licencia-gpl"><span class="toc-section-number">5.3</span> Licencia GPL</a></li>
-<li><a href="#española"><span class="toc-section-number">5.4</span> Española</a></li>
+<li><a href="#licencia-gpl"><span class="toc-section-number">5.3</span> ¿Licencia GPL?</a></li>
+<li><a href="#español"><span class="toc-section-number">5.4</span> ¿Español?</a></li>
 <li><a href="#pues-no"><span class="toc-section-number">5.5</span> Pues no</a></li>
 <li><a href="#me-gusta"><span class="toc-section-number">5.6</span> Me gusta</a></li>
 <li><a href="#aburrido"><span class="toc-section-number">5.7</span> Aburrido</a></li>
@@ -118,7 +128,7 @@ code > span.er { font-weight: bold; }
 </ul>
 <h2 id="dónde-encontrarnos"><a href="#dónde-encontrarnos"><span class="header-section-number">1.2</span> ¿Dónde encontrarnos?</a></h2>
 <ul>
-<li>Twitter: <a href="http://twitter.com/guluc3m">@guluc3m</a></li>
+<li>Twitter: <a href="http://twitter.com/guluc3m">http://twitter.com/guluc3m</a></li>
 <li>Lista: <a href="mailto:gul@gul.uc3m.es">gul@gul.uc3m.es</a></li>
 <li>Ftp: <a href="ftp://ftp.gul.uc3m.es">ftp://ftp.gul.uc3m.es</a></li>
 <li>Web: <a href="http://www.gul.uc3m.es">http://www.gul.uc3m.es</a></li>
@@ -128,7 +138,7 @@ code > span.er { font-weight: bold; }
 </ul>
 <h2 id="adolfo-sanz-de-diego"><a href="#adolfo-sanz-de-diego"><span class="header-section-number">1.3</span> Adolfo Sanz De Diego</a></h2>
 <figure>
-<img src="../img/avatar-asanzdiego.jpg" alt="asanzdiego" /><figcaption>asanzdiego</figcaption>
+<img src="../img/avatar-asanzdiego.png" />
 </figure>
 <h2 id="mi-cv-resumido"><a href="#mi-cv-resumido"><span class="header-section-number">1.4</span> Mi CV resumido</a></h2>
 <ul>
@@ -141,80 +151,108 @@ code > span.er { font-weight: bold; }
 <pre><code>- Java, Android
 - JavaScript, jQuery
 - JSF, Spring, Hibernate y Groovy&amp;Grails</code></pre></li>
-<li><p>Programo en mis tiempos libres.</p></li>
+<li><p><strong>Me gusta programar</strong></p></li>
 </ul></li>
 </ul>
 <h2 id="hackalover"><a href="#hackalover"><span class="header-section-number">1.5</span> Hackalover</a></h2>
-<ul>
-<li><strong>Meetup</strong>: <a href="http://www.meetup.com/Hackathon-Lovers/">http://www.meetup.com/Hackathon-Lovers/</a></li>
-</ul>
 <figure>
-<img src="../img/hackathon-lovers-logo-300.png" alt="HackathonLovers" /><figcaption>HackathonLovers</figcaption>
+<img src="../img/hackathon-lovers.png" />
 </figure>
 <ul>
-<li><strong>Twitter</strong>: <a href="http://twitter.com/HackathonLovers">http://twitter.com/HackathonLovers</a></li>
+<li><p><strong>Para los amantes de los hackathones</strong></p></li>
+<li><p><strong>Meetup</strong>: <a href="http://www.meetup.com/Hackathon-Lovers/">http://www.meetup.com/Hackathon-Lovers/</a></p></li>
+<li><p><strong>Twitter</strong>: <a href="http://twitter.com/HackathonLovers">http://twitter.com/HackathonLovers</a></p></li>
 </ul>
-<figure>
-<img src="../img/hackathon-lovers-logo-cuadrado.png" alt="HackathonLovers" /><figcaption>HackathonLovers</figcaption>
-</figure>
 <h2 id="donde-encontrarme"><a href="#donde-encontrarme"><span class="header-section-number">1.6</span> ¿Donde encontrarme?</a></h2>
 <ul>
 <li><p>Mi nick: <strong>asanzdiego</strong></p></li>
 <li><p>AboutMe: <strong><a href="http://about.me/asanzdiego">http://about.me/asanzdiego</a></strong></p>
 <ul>
-<li><a href="http://github.com/asanzdiego/">GitHub</a></li>
-<li><a href="http://twitter.com/asanzdiego">Twitter</a></li>
-<li><a href="http://asanzdiego.blogspot.com.es">Blog</a></li>
-<li><a href="http://www.linkedin.com/in/asanzdiego">LinkedIn</a></li>
-<li><a href="http://plus.google.com/118434794733307240711">Google+</a></li>
+<li>GitHub: <a href="http://github.com/asanzdiego/">http://github.com/asanzdiego/</a></li>
+<li>Twitter: <a href="http://twitter.com/asanzdiego">http://twitter.com/asanzdiego</a></li>
+<li>Blog: <a href="http://asanzdiego.blogspot.com.es">http://asanzdiego.blogspot.com.es</a></li>
+<li>LinkedIn: <a href="http://www.linkedin.com/in/asanzdiego">http://www.linkedin.com/in/asanzdiego</a></li>
 </ul></li>
 </ul>
 <h2 id="licencia"><a href="#licencia"><span class="header-section-number">1.7</span> Licencia</a></h2>
 <ul>
 <li>Estas <strong>transparencias</strong> están bajo una licencia:
 <ul>
-<li><a href="http://creativecommons.org/licenses/by-sa/3.0/es/">Creative Commons Reconocimiento-CompartirIgual 3.0</a></li>
+<li>Creative Commons Reconocimiento-CompartirIgual 3.0 <a href="http://creativecommons.org/licenses/by-sa/3.0/es/">http://creativecommons.org/licenses/by-sa/3.0/es/</a></li>
 </ul></li>
 <li>El <strong>código fuente</strong> de los programas están bajo una licencia:
 <ul>
-<li><a href="http://www.viti.es/gnu/licenses/gpl.html">GPL 3.0</a></li>
+<li>GPL 3.0 <a href="http://www.viti.es/gnu/licenses/gpl.html">http://www.viti.es/gnu/licenses/gpl.html</a></li>
 </ul></li>
 </ul>
 <h1 id="apis-para-qué"><a href="#apis-para-qué"><span class="header-section-number">2</span> APIs ¿Para qué?</a></h1>
-<h2 id="haber-venido"><a href="#haber-venido"><span class="header-section-number">2.1</span> Haber venido</a></h2>
+<h2 id="aplicación-estándar"><a href="#aplicación-estándar"><span class="header-section-number">2.1</span> Aplicación estándar</a></h2>
 <figure>
-<img src="../img/julio-iglesias-haber-venido.png" alt="Haber venido" /><figcaption>Haber venido</figcaption>
+<img src="../img/esquema-api-rest-01.png" />
 </figure>
-<h2 id="aplicación"><a href="#aplicación"><span class="header-section-number">2.2</span> Aplicación</a></h2>
+<h2 id="introducimos-api"><a href="#introducimos-api"><span class="header-section-number">2.2</span> Introducimos API</a></h2>
 <figure>
-<img src="../img/esquema-api-rest-01.png" alt="Aplicación" /><figcaption>Aplicación</figcaption>
+<img src="../img/esquema-api-rest-02.png" />
 </figure>
-<h2 id="plataforma"><a href="#plataforma"><span class="header-section-number">2.3</span> Plataforma</a></h2>
+<h2 id="separación-roles"><a href="#separación-roles"><span class="header-section-number">2.3</span> Separación Roles</a></h2>
 <figure>
-<img src="../img/esquema-api-rest-09.png" alt="Plataforma" /><figcaption>Plataforma</figcaption>
+<img src="../img/esquema-api-rest-03.png" />
 </figure>
-<h2 id="quien-expone-apis"><a href="#quien-expone-apis"><span class="header-section-number">2.4</span> ¿Quien expone APIs?</a></h2>
+<h2 id="y-ahora-qué"><a href="#y-ahora-qué"><span class="header-section-number">2.4</span> ¿Y ahora qué?</a></h2>
 <figure>
-<img src="../img/apis-3.png" alt="APIs 3" /><figcaption>APIs 3</figcaption>
+<img src="../img/esquema-api-rest-04.png" />
 </figure>
-<h2 id="exponlas-tú"><a href="#exponlas-tú"><span class="header-section-number">2.5</span> Exponlas tú</a></h2>
+<h2 id="servicios-externos"><a href="#servicios-externos"><span class="header-section-number">2.5</span> Servicios externos</a></h2>
 <figure>
-<img src="../img/cup.jpg" alt="Ejemlo Taza" /><figcaption>Ejemlo Taza</figcaption>
+<img src="../img/esquema-api-rest-05.png" />
 </figure>
-<h2 id="exponlas-tú-1"><a href="#exponlas-tú-1"><span class="header-section-number">2.6</span> Exponlas tú</a></h2>
+<h2 id="apps-clientes"><a href="#apps-clientes"><span class="header-section-number">2.6</span> Apps clientes</a></h2>
 <figure>
-<img src="../img/cup-relaxing.jpg" alt="Ejemlo Taza Relaxing Cup" /><figcaption>Ejemlo Taza Relaxing Cup</figcaption>
+<img src="../img/esquema-api-rest-06.png" />
 </figure>
-<h2 id="exponlas-tú-2"><a href="#exponlas-tú-2"><span class="header-section-number">2.7</span> Exponlas tú</a></h2>
+<h2 id="apps-de-servicios"><a href="#apps-de-servicios"><span class="header-section-number">2.7</span> Apps de servicios</a></h2>
 <figure>
-<img src="../img/cup-relaxing-guay.jpg" alt="Ejemlo Taza Relaxing Cup Guay" /><figcaption>Ejemlo Taza Relaxing Cup Guay</figcaption>
+<img src="../img/esquema-api-rest-07.png" />
+</figure>
+<h2 id="apps-mixtas"><a href="#apps-mixtas"><span class="header-section-number">2.8</span> Apps mixtas</a></h2>
+<figure>
+<img src="../img/esquema-api-rest-08.png" />
+</figure>
+<h2 id="plataforma"><a href="#plataforma"><span class="header-section-number">2.9</span> Plataforma</a></h2>
+<figure>
+<img src="../img/esquema-api-rest-09.png" />
+</figure>
+<h2 id="quien-expone-apis"><a href="#quien-expone-apis"><span class="header-section-number">2.10</span> ¿Quien expone APIs?</a></h2>
+<figure>
+<img src="../img/apis-1.png" />
+</figure>
+<h2 id="quien-expone-apis-1"><a href="#quien-expone-apis-1"><span class="header-section-number">2.11</span> ¿Quien expone APIs?</a></h2>
+<figure>
+<img src="../img/apis-2.png" />
+</figure>
+<h2 id="quien-expone-apis-2"><a href="#quien-expone-apis-2"><span class="header-section-number">2.12</span> ¿Quien expone APIs?</a></h2>
+<figure>
+<img src="../img/apis-3.png" />
+</figure>
+<h2 id="exponlas-tú"><a href="#exponlas-tú"><span class="header-section-number">2.13</span> Exponlas tú</a></h2>
+<figure>
+<img src="../img/cup.png" />
+</figure>
+<h2 id="exponlas-tú-1"><a href="#exponlas-tú-1"><span class="header-section-number">2.14</span> Exponlas tú</a></h2>
+<figure>
+<img src="../img/cup-relaxing.png" />
+</figure>
+<h2 id="exponlas-tú-2"><a href="#exponlas-tú-2"><span class="header-section-number">2.15</span> Exponlas tú</a></h2>
+<figure>
+<img src="../img/cup-ecce-homo.png" />
 </figure>
 <h1 id="apis-restful"><a href="#apis-restful"><span class="header-section-number">3</span> APIs RESTful</a></h1>
 <h2 id="qué-es-rest"><a href="#qué-es-rest"><span class="header-section-number">3.1</span> ¿Qué es REST?</a></h2>
 <ul>
-<li><p>Una <strong>URL</strong> (Uniform Resource Locator) representa un <strong>recurso</strong>.</p></li>
+<li><p>REST (<strong>Representational State Transfer</strong>) es una técnica de arquitectura de software para sistemas hipermedia distribuidos como la World Wide Web.</p></li>
+<li><p>En REST una <strong>URL</strong> (Uniform Resource Locator) representa un <strong>recurso</strong>.</p></li>
 <li><p>Se puede acceder al recurso o modificarlo mediante los <strong>métodos del protocolo HTTP</strong>:</p>
-<pre><code>- POST, GET, PUT, DELETE</code></pre></li>
+<pre><code>GET, POST, PUT, DELETE</code></pre></li>
 </ul>
 <h2 id="ejemplo-api"><a href="#ejemplo-api"><span class="header-section-number">3.2</span> Ejemplo API</a></h2>
 <ul>
@@ -255,83 +293,108 @@ code > span.er { font-weight: bold; }
 <li>Es <strong>multiformato</strong> (HTML, XML, JSON, etc.).</li>
 <li>Se complementa muy bien con <strong>AJAX</strong>.</li>
 </ul>
+<h2 id="rest-vs-restful"><a href="#rest-vs-restful"><span class="header-section-number">3.5</span> REST vs RESTful</a></h2>
+<ul>
+<li><p>REST se refiere a un tipo de arquitectura de software</p>
+<ul>
+<li>Se utiliza como <strong>nombre</strong></li>
+<li>Se utiliza como por ejemplo: success = éxito.</li>
+</ul></li>
+<li><p>Si un servicio web es REST<strong>ful</strong> indica que implementa dicha arquitectura.</p>
+<ul>
+<li>Se utiliza como <strong>adjetivo</strong></li>
+<li>Se utiliza como por ejemplo: success<strong>ful</strong> = éxito<strong>so</strong>).</li>
+</ul></li>
+</ul>
+<h2 id="rest-vs-restful-1"><a href="#rest-vs-restful-1"><span class="header-section-number">3.6</span> REST vs RESTful</a></h2>
+<ul>
+<li><p>A veces el <strong>ful</strong> se confunde con <strong>full</strong> = completo.</p>
+<ul>
+<li><p>Y se refiere a los servicios web REST<strong>full</strong></p>
+<pre><code>Aquellos que implementan una API con
+todos los métodos del protócolo HTTP.</code></pre></li>
+<li><p>Y se refiere a los servicios web REST (<strong>sin el full</strong>)</p>
+<pre><code>Aquellos que NO implementan una API con
+todos los métodos del protócolo HTTP.</code></pre></li>
+</ul></li>
+</ul>
 <h1 id="clientes-multidispositivo"><a href="#clientes-multidispositivo"><span class="header-section-number">4</span> Clientes multidispositivo</a></h1>
 <h2 id="distintos-dispositivos"><a href="#distintos-dispositivos"><span class="header-section-number">4.1</span> Distintos dispositivos</a></h2>
 <figure>
-<img src="../img/distintos-dispositivos.jpg" alt="Distintos dispositivos" /><figcaption>Distintos dispositivos</figcaption>
+<img src="../img/distintos-dispositivos.png" />
 </figure>
 <h2 id="distintos-os"><a href="#distintos-os"><span class="header-section-number">4.2</span> Distintos OS</a></h2>
 <figure>
-<img src="../img/distintos-so-moviles-1.png" alt="Distintos Sistemas Operativos 1" /><figcaption>Distintos Sistemas Operativos 1</figcaption>
+<img src="../img/distintos-so-moviles-1.png" />
 </figure>
 <h2 id="distintos-os-1"><a href="#distintos-os-1"><span class="header-section-number">4.3</span> Distintos OS</a></h2>
 <figure>
-<img src="../img/distintos-so-moviles-2.png" alt="Distintos Sistemas Operativos 2" /><figcaption>Distintos Sistemas Operativos 2</figcaption>
+<img src="../img/distintos-so-moviles-2.png" />
 </figure>
 <h2 id="distintos-navegadores"><a href="#distintos-navegadores"><span class="header-section-number">4.4</span> Distintos navegadores</a></h2>
 <figure>
-<img src="../img/distintos-navegadores.png" alt="Distintos navegadores" /><figcaption>Distintos navegadores</figcaption>
+<img src="../img/distintos-navegadores.png" />
 </figure>
 <h2 id="socorro"><a href="#socorro"><span class="header-section-number">4.5</span> ¡¡¡Socorro!!!</a></h2>
 <figure>
-<img src="../img/simpson-socorro.png" alt="Simpson Socorro" /><figcaption>Simpson Socorro</figcaption>
+<img src="../img/simpson-socorro.png" />
 </figure>
 <h2 id="al-rescate"><a href="#al-rescate"><span class="header-section-number">4.6</span> Al rescate</a></h2>
 <figure>
-<img src="../img/al-rescate.png" alt="Al rescate" /><figcaption>Al rescate</figcaption>
+<img src="../img/al-rescate.png" />
 </figure>
 <h2 id="graceful-degradation"><a href="#graceful-degradation"><span class="header-section-number">4.7</span> Graceful Degradation</a></h2>
 <figure>
-<img src="../img/responsive-design-graceful-degradation.png" alt="Graceful Degradation" /><figcaption>Graceful Degradation</figcaption>
+<img src="../img/responsive-design-graceful-degradation.png" />
 </figure>
 <h2 id="graceful-degradation-1"><a href="#graceful-degradation-1"><span class="header-section-number">4.8</span> Graceful Degradation</a></h2>
 <figure>
-<img src="../img/responsive-design-graceful-degradation-mal.png" alt="Graceful Degradation Mal" /><figcaption>Graceful Degradation Mal</figcaption>
+<img src="../img/responsive-design-graceful-degradation-mal.png" />
 </figure>
 <h2 id="progressive-enhancement"><a href="#progressive-enhancement"><span class="header-section-number">4.9</span> Progressive Enhancement</a></h2>
 <figure>
-<img src="../img/responsive-design-progressive-enhancement.png" alt="Progressive Enhancement" /><figcaption>Progressive Enhancement</figcaption>
+<img src="../img/responsive-design-progressive-enhancement.png" />
 </figure>
 <h2 id="phonegap"><a href="#phonegap"><span class="header-section-number">4.10</span> Phonegap</a></h2>
 <figure>
-<img src="../img/phonegap-build.png" alt="Phonegap" /><figcaption>Phonegap</figcaption>
+<img src="../img/phonegap-build.png" />
 </figure>
 <h1 id="lungo.js"><a href="#lungo.js"><span class="header-section-number">5</span> Lungo.js</a></h1>
 <h2 id="competidores"><a href="#competidores"><span class="header-section-number">5.1</span> Competidores</a></h2>
 <ul>
-<li><a href="http://jqtjs.com/">jQTouch</a></li>
-<li><a href="http://www.sencha.com/products/touch/">Sencha Touch</a></li>
-<li><a href="http://jquerymobile.com/">jQueryMobile</a></li>
-<li><a href="http://eightmedia.github.io/hammer.js/">hammer.js</a></li>
+<li>jQTouch: <a href="http://jqtjs.com/">http://jqtjs.com/</a></li>
+<li>Sencha Touch: <a href="http://www.sencha.com/products/touch/">http://www.sencha.com/products/touch/</a></li>
+<li>jQueryMobile: <a href="http://jquerymobile.com/">http://jquerymobile.com/</a></li>
+<li>hammer.js: <a href="http://eightmedia.github.io/hammer.js/">http://eightmedia.github.io/hammer.js/</a></li>
 </ul>
 <h2 id="por-qué-lungo"><a href="#por-qué-lungo"><span class="header-section-number">5.2</span> ¿Por qué Lungo?</a></h2>
 <figure>
-<img src="../img/nubes-por-que-lungo.png" alt="Nubes Lungo" /><figcaption>Nubes Lungo</figcaption>
+<img src="../img/nubes-por-que-lungo.png" />
 </figure>
-<h2 id="licencia-gpl"><a href="#licencia-gpl"><span class="header-section-number">5.3</span> Licencia GPL</a></h2>
+<h2 id="licencia-gpl"><a href="#licencia-gpl"><span class="header-section-number">5.3</span> ¿Licencia GPL?</a></h2>
 <figure>
-<img src="../img/i-love-gpl.png" alt="I Love GPL" /><figcaption>I Love GPL</figcaption>
+<img src="../img/i-love-gpl.png" />
 </figure>
-<h2 id="española"><a href="#española"><span class="header-section-number">5.4</span> Española</a></h2>
+<h2 id="español"><a href="#español"><span class="header-section-number">5.4</span> ¿Español?</a></h2>
 <figure>
-<img src="../img/i-love-espania.png" alt="I Love Espania" /><figcaption>I Love Espania</figcaption>
+<img src="../img/i-love-espania.png" />
 </figure>
 <h2 id="pues-no"><a href="#pues-no"><span class="header-section-number">5.5</span> Pues no</a></h2>
 <figure>
-<img src="../img/julio-iglesias-equivocado.png" alt="Julio Iglesias Equivocado" /><figcaption>Julio Iglesias Equivocado</figcaption>
+<img src="../img/julio-iglesias-equivocado.png" />
 </figure>
 <h2 id="me-gusta"><a href="#me-gusta"><span class="header-section-number">5.6</span> Me gusta</a></h2>
 <figure>
-<img src="../img/nubes-a-que-huelen.png" alt="A que huelen las nubes" /><figcaption>A que huelen las nubes</figcaption>
+<img src="../img/nubes-a-que-huelen.png" />
 </figure>
 <h2 id="aburrido"><a href="#aburrido"><span class="header-section-number">5.7</span> Aburrido</a></h2>
 <figure>
-<img src="../img/gato-aburrido.png" alt="Gato Aburrido" /><figcaption>Gato Aburrido</figcaption>
+<img src="../img/gato-aburrido.png" />
 </figure>
 <h1 id="código"><a href="#código"><span class="header-section-number">6</span> Código</a></h1>
 <h2 id="aplausos"><a href="#aplausos"><span class="header-section-number">6.1</span> Aplausos</a></h2>
 <figure>
-<img src="../img/aplausos.gif" alt="Aplausos ANimados" /><figcaption>Aplausos ANimados</figcaption>
+<img src="../img/aplausos.gif" />
 </figure>
 <h2 id="directorios"><a href="#directorios"><span class="header-section-number">6.2</span> Directorios</a></h2>
 <ul>
@@ -351,9 +414,6 @@ code > span.er { font-weight: bold; }
 <span class="fu">$$</span>(<span class="st">&#39;document&#39;</span>).<span class="fu">ready</span>(<span class="kw">function</span>(){
     <span class="ot">Lungo</span>.<span class="fu">dom</span>(<span class="st">&#39;input[type=search]&#39;</span>).<span class="fu">on</span>(<span class="st">&#39;keyup&#39;</span>, ...);
 });
-
-<span class="co">// Date format</span>
-<span class="kw">var</span> util_dateFormat = <span class="st">&quot;DD/MM/YYYY HH:mm:ss&quot;</span>;
 
 <span class="co">// Server URL</span>
 <span class="kw">var</span> util_server_url = <span class="st">&quot;http://localhost:3000&quot;</span>;
@@ -384,11 +444,7 @@ code > span.er { font-weight: bold; }
    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;form&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;fieldset&gt;</span>
      <span class="kw">&lt;label&gt;</span>NAME:<span class="kw">&lt;/label&gt;&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;talkName&quot;</span> <span class="kw">/&gt;</span>
-    <span class="kw">&lt;/fieldset&gt;</span>
-    ...
-    <span class="kw">&lt;fieldset&gt;</span>
-     <span class="kw">&lt;label&gt;</span>NUM:<span class="kw">&lt;/label&gt;&lt;input</span><span class="ot"> type=</span><span class="st">&quot;number&quot;</span><span class="ot"> id=</span><span class="st">&quot;talkNum&quot;</span> <span class="kw">/&gt;</span>
-    <span class="kw">&lt;/fieldset&gt;</span>
+    <span class="kw">&lt;/fieldset&gt;</span>...
    <span class="kw">&lt;/div&gt;</span>
    <span class="kw">&lt;div&gt;</span>
     <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#addTalk&quot;</span><span class="ot"> id=</span><span class="st">&quot;addTalk&quot;</span><span class="ot"> class=</span><span class="st">&quot;button&quot;</span><span class="kw">&gt;</span>Add<span class="kw">&lt;/a&gt;</span>
@@ -396,11 +452,10 @@ code > span.er { font-weight: bold; }
    <span class="kw">&lt;/div&gt;</span>
   <span class="kw">&lt;/article&gt;</span>
  <span class="kw">&lt;/section&gt;</span>
-<span class="er"> &lt;script&gt;Lungo.init({});&lt;/script&gt;</span>
 <span class="kw">&lt;/body&gt;</span></code></pre>
 <h2 id="htmltalktalk-add.html-1"><a href="#htmltalktalk-add.html-1"><span class="header-section-number">6.5</span> html/talk/talk-add.html</a></h2>
 <figure>
-<img src="../img/demo-talk-add.png" alt="Add Talk" /><figcaption>Add Talk</figcaption>
+<img src="../img/demo-talk-add.png" />
 </figure>
 <h2 id="jstalktalk-add.js"><a href="#jstalktalk-add.js"><span class="header-section-number">6.6</span> js/talk/talk-add.js</a></h2>
 <pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="fu">$$</span>(<span class="st">&#39;#addTalk&#39;</span>).<span class="fu">tap</span>(<span class="kw">function</span>(){
@@ -423,7 +478,6 @@ code > span.er { font-weight: bold; }
    });
   }
  });
-
 });</code></pre>
 <h2 id="htmltalktalk-edit.html"><a href="#htmltalktalk-edit.html"><span class="header-section-number">6.7</span> html/talk/talk-edit.html</a></h2>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;body</span><span class="ot"> class=</span><span class="st">&quot;app&quot;</span><span class="kw">&gt;</span>
@@ -443,21 +497,20 @@ code > span.er { font-weight: bold; }
    ...
   <span class="kw">&lt;/article&gt;</span>
  <span class="kw">&lt;/section&gt;</span>
-<span class="er"> &lt;script&gt;Lungo.init({});&lt;/script&gt;</span>
 <span class="kw">&lt;/body&gt;</span></code></pre>
 <h2 id="htmltalktalk-edit.html-1"><a href="#htmltalktalk-edit.html-1"><span class="header-section-number">6.8</span> html/talk/talk-edit.html</a></h2>
 <figure>
-<img src="../img/demo-talk-edit.png" alt="Edit Talk" /><figcaption>Edit Talk</figcaption>
+<img src="../img/demo-talk-edit.png" />
 </figure>
 <h2 id="htmltalktalk-edit.html-2"><a href="#htmltalktalk-edit.html-2"><span class="header-section-number">6.9</span> html/talk/talk-edit.html</a></h2>
 <figure>
-<img src="../img/demo-talk-delete.png" alt="Delete Talk" /><figcaption>Delete Talk</figcaption>
+<img src="../img/demo-talk-delete.png" />
 </figure>
 <h2 id="jstalktalk-get.js"><a href="#jstalktalk-get.js"><span class="header-section-number">6.10</span> js/talk/talk-get.js</a></h2>
 <pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="fu">$$</span>(<span class="st">&#39;document&#39;</span>).<span class="fu">ready</span>(<span class="kw">function</span>(){
- 
+
  <span class="kw">var</span> talkId = util_urlParams[<span class="st">&quot;talkId&quot;</span>];
- 
+
  <span class="co">// get data from server</span>
  <span class="fu">util_ajaxGet</span>(<span class="st">&#39;/talk/&#39;</span>+talkId, {}, <span class="kw">function</span>(json) {
   <span class="kw">if</span>(!json || <span class="ot">json</span>.<span class="fu">error</span>) {
@@ -468,16 +521,12 @@ code > span.er { font-weight: bold; }
    <span class="fu">drawTalk</span>(talk);
   }
  });
- 
+
  <span class="co">// draw data</span>
  <span class="kw">var</span> drawTalk = <span class="kw">function</span>(talk) {
   <span class="fu">$$</span>(<span class="st">&quot;#talkName&quot;</span>).<span class="fu">val</span>(<span class="ot">talk</span>.<span class="fu">talkName</span>);
-  <span class="fu">$$</span>(<span class="st">&quot;#talkDate&quot;</span>).<span class="fu">val</span>(<span class="fu">util_dateToString</span>(<span class="ot">talk</span>.<span class="fu">talkDate</span>));
-  <span class="fu">$$</span>(<span class="st">&quot;#talkSpeaker&quot;</span>).<span class="fu">val</span>(<span class="ot">talk</span>.<span class="fu">talkSpeaker</span>);
-  <span class="fu">$$</span>(<span class="st">&quot;#talkSpeakerMail&quot;</span>).<span class="fu">val</span>(<span class="ot">talk</span>.<span class="fu">talkSpeakerMail</span>);
-  <span class="fu">$$</span>(<span class="st">&quot;#talkPoints&quot;</span>).<span class="fu">val</span>(<span class="st">&quot;&quot;</span>+<span class="ot">talk</span>.<span class="fu">talkPoints</span>);
+  ...
  };
-
 });</code></pre>
 <h2 id="jstalktalk-update.js"><a href="#jstalktalk-update.js"><span class="header-section-number">6.11</span> js/talk/talk-update.js</a></h2>
 <pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="fu">$$</span>(<span class="st">&#39;#saveTalk&#39;</span>).<span class="fu">tap</span>(<span class="kw">function</span>(){
@@ -486,10 +535,7 @@ code > span.er { font-weight: bold; }
 
  <span class="kw">var</span> data = {
   <span class="dt">talkName</span>:        <span class="fu">$$</span>(<span class="st">&quot;#talkName&quot;</span>).<span class="fu">val</span>(),
-  <span class="dt">talkDate</span>:        <span class="fu">util_stringToDate</span>(<span class="fu">$$</span>(<span class="st">&quot;#talkDate&quot;</span>).<span class="fu">val</span>()),
-  <span class="dt">talkSpeaker</span>:     <span class="fu">$$</span>(<span class="st">&quot;#talkSpeaker&quot;</span>).<span class="fu">val</span>(),
-  <span class="dt">talkSpeakerMail</span>: <span class="fu">$$</span>(<span class="st">&quot;#talkSpeakerMail&quot;</span>).<span class="fu">val</span>(),
-  <span class="dt">talkPoints</span>:   <span class="fu">$$</span>(<span class="st">&quot;#talkPoints&quot;</span>).<span class="fu">val</span>()
+  ...
  };
 
  <span class="co">// send data to server</span>
@@ -502,7 +548,6 @@ code > span.er { font-weight: bold; }
    });
   }
  });
-
 });</code></pre>
 <h2 id="jstalktalk-delete.js"><a href="#jstalktalk-delete.js"><span class="header-section-number">6.12</span> js/talk/talk-delete.js</a></h2>
 <pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="fu">$$</span>(<span class="st">&#39;#deleteTalk&#39;</span>).<span class="fu">tap</span>(<span class="kw">function</span>(){
@@ -518,8 +563,7 @@ code > span.er { font-weight: bold; }
     <span class="ot">window</span>.<span class="ot">location</span>.<span class="fu">replace</span>(<span class="st">&#39;talk-list.html&#39;</span>);
    });
   }
- }); 
-
+ });
 });</code></pre>
 <h2 id="htmltalktalk-list.html"><a href="#htmltalktalk-list.html"><span class="header-section-number">6.13</span> html/talk/talk-list.html</a></h2>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;body</span><span class="ot"> class=</span><span class="st">&quot;app&quot;</span><span class="kw">&gt;</span>
@@ -540,15 +584,14 @@ code > span.er { font-weight: bold; }
    <span class="kw">&lt;ul</span><span class="ot"> id=</span><span class="st">&quot;talks&quot;</span><span class="kw">&gt;&lt;/ul&gt;</span>
   <span class="kw">&lt;/article&gt;</span>
  <span class="kw">&lt;/section&gt;</span>
-<span class="er"> &lt;script&gt;Lungo.init({});&lt;/script&gt;</span>
 <span class="kw">&lt;/body&gt;</span></code></pre>
 <h2 id="htmltalktalk-list.html-1"><a href="#htmltalktalk-list.html-1"><span class="header-section-number">6.14</span> html/talk/talk-list.html</a></h2>
 <figure>
-<img src="../img/demo-talk-list.png" alt="Talks List" /><figcaption>Talks List</figcaption>
+<img src="../img/demo-talk-list.png" />
 </figure>
 <h2 id="htmltalktalk-list.html-2"><a href="#htmltalktalk-list.html-2"><span class="header-section-number">6.15</span> html/talk/talk-list.html</a></h2>
 <figure>
-<img src="../img/demo-talk-list-search.png" alt="Talks List Search" /><figcaption>Talks List Search</figcaption>
+<img src="../img/demo-talk-list-search.png" />
 </figure>
 <h2 id="jstalktalk-list.js"><a href="#jstalktalk-list.js"><span class="header-section-number">6.16</span> js/talk/talk-list.js</a></h2>
 <pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="fu">$$</span>(<span class="st">&#39;document&#39;</span>).<span class="fu">ready</span>(<span class="kw">function</span>(){
@@ -558,12 +601,10 @@ code > span.er { font-weight: bold; }
   <span class="kw">if</span>(!json || <span class="ot">json</span>.<span class="fu">error</span>) {
    <span class="fu">util_errorNotification</span>(<span class="st">&#39;ERROR retrieving talks&#39;</span>, <span class="ot">json</span>.<span class="fu">error</span>);
   } <span class="kw">else</span> {
-   <span class="kw">var</span> talks = json;
-   <span class="ot">console</span>.<span class="fu">log</span>(<span class="ot">talks</span>.<span class="fu">length</span>+<span class="st">&#39; talks retrieved&#39;</span>);
-   <span class="fu">drawTalks</span>(talks);
+   <span class="fu">drawTalks</span>(json);
   }
  });
- 
+
  <span class="co">// draw data</span>
  <span class="kw">var</span> drawTalks = <span class="kw">function</span>(talks) {
   <span class="kw">for</span> (<span class="kw">var</span> i = <span class="dv">0</span>; i &lt; <span class="ot">talks</span>.<span class="fu">length</span>; i++) {
@@ -571,11 +612,9 @@ code > span.er { font-weight: bold; }
    <span class="fu">$$</span>(<span class="st">&quot;#talks&quot;</span>).<span class="fu">append</span>(
     <span class="st">&#39;&lt;li data-action=&quot;search&quot; class=&quot;selectable&quot;&gt;&#39;</span>+
      <span class="st">&#39;&lt;a href=&quot;talk-edit.html?talkId=&#39;</span>+<span class="ot">talk</span>.<span class="fu">_id</span>+<span class="st">&#39;&quot;&gt;&#39;</span>+
-      <span class="st">&#39;&lt;strong&gt;&#39;</span>+<span class="ot">talk</span>.<span class="fu">talkName</span>+<span class="st">&#39;&lt;/strong&gt;&#39;</span>+
-      <span class="st">&#39;&lt;small&gt;&#39;</span>+<span class="ot">talk</span>.<span class="fu">talkSpeaker</span>+<span class="st">&#39;&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&#39;</span>);
+      <span class="st">&#39;&lt;strong&gt;&#39;</span>+<span class="ot">talk</span>.<span class="fu">talkName</span>+<span class="st">&#39;&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;&#39;</span>);
   }
  };
-
 });</code></pre>
 <h1 id="demo"><a href="#demo"><span class="header-section-number">7</span> Demo</a></h1>
 <h1 id="alguna-pregunta"><a href="#alguna-pregunta"><span class="header-section-number">8</span> ¿Alguna pregunta?</a></h1>

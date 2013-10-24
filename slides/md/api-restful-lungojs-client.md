@@ -14,17 +14,17 @@
 
 ## ¿Dónde encontrarnos?
 
-- Twitter: [@guluc3m](http://twitter.com/guluc3m)
-- Lista: [gul@gul.uc3m.es](mailto:gul@gul.uc3m.es)
-- Ftp: [ftp://ftp.gul.uc3m.es](ftp://ftp.gul.uc3m.es)
-- Web: [http://www.gul.uc3m.es](http://www.gul.uc3m.es)
-- Podcast: [http://holamundo.gul.es/](http://holamundo.gul.es/)
-- Blog: [http://planeta.gul.uc3m.es/](http://planeta.gul.uc3m.es/)
+- Twitter:  [http://twitter.com/guluc3m](http://twitter.com/guluc3m)
+- Lista:    [gul@gul.uc3m.es](mailto:gul@gul.uc3m.es)
+- Ftp:      [ftp://ftp.gul.uc3m.es](ftp://ftp.gul.uc3m.es)
+- Web:      [http://www.gul.uc3m.es](http://www.gul.uc3m.es)
+- Podcast:  [http://holamundo.gul.es/](http://holamundo.gul.es/)
+- Blog:     [http://planeta.gul.uc3m.es/](http://planeta.gul.uc3m.es/)
 - Linkedin: [http://www.linkedin.com/groups?gid=3451836](http://www.linkedin.com/groups?gid=3451836)
 
 ## Adolfo Sanz De Diego
 
-![asanzdiego](../img/avatar-asanzdiego.jpg)
+![](../img/avatar-asanzdiego.png)
 
 ## Mi CV resumido
 
@@ -33,26 +33,26 @@
 - Hoy en día:
 
     - **Profesor de FP de informática**:
-    
+
             - Hardware, Sistemas Operativos, Redes, Programación
-    
+
     - **Formador Freelance**:
-    
+
             - Java, Android
             - JavaScript, jQuery
             - JSF, Spring, Hibernate y Groovy&Grails
-    
-    - Programo en mis tiempos libres.
+
+    - **Me gusta programar**
 
 ## Hackalover
 
+![](../img/hackathon-lovers.png)
+
+- **Para los amantes de los hackathones**
+
 - **Meetup**: [http://www.meetup.com/Hackathon-Lovers/](http://www.meetup.com/Hackathon-Lovers/)
 
-![HackathonLovers](../img/hackathon-lovers-logo-300.png)
-
 - **Twitter**: [http://twitter.com/HackathonLovers](http://twitter.com/HackathonLovers)
-
-![HackathonLovers](../img/hackathon-lovers-logo-cuadrado.png)
 
 ## ¿Donde encontrarme?
 
@@ -60,59 +60,93 @@
 
 - AboutMe: **[http://about.me/asanzdiego](http://about.me/asanzdiego)**
 
-    - [GitHub](http://github.com/asanzdiego/)
-    - [Twitter](http://twitter.com/asanzdiego)
-    - [Blog](http://asanzdiego.blogspot.com.es)
-    - [LinkedIn](http://www.linkedin.com/in/asanzdiego)
-    - [Google+](http://plus.google.com/118434794733307240711)
-    
+    - GitHub:   [http://github.com/asanzdiego/](http://github.com/asanzdiego/)
+    - Twitter:  [http://twitter.com/asanzdiego](http://twitter.com/asanzdiego)
+    - Blog:     [http://asanzdiego.blogspot.com.es](http://asanzdiego.blogspot.com.es)
+    - LinkedIn: [http://www.linkedin.com/in/asanzdiego](http://www.linkedin.com/in/asanzdiego)
+
 ## Licencia
 
 - Estas **transparencias** están bajo una licencia:
-    - [Creative Commons Reconocimiento-CompartirIgual 3.0](http://creativecommons.org/licenses/by-sa/3.0/es/)
+    - Creative Commons Reconocimiento-CompartirIgual 3.0 [http://creativecommons.org/licenses/by-sa/3.0/es/](http://creativecommons.org/licenses/by-sa/3.0/es/)
 
 - El **código fuente** de los programas están bajo una licencia:
-    - [GPL 3.0](http://www.viti.es/gnu/licenses/gpl.html)
+    - GPL 3.0 [http://www.viti.es/gnu/licenses/gpl.html](http://www.viti.es/gnu/licenses/gpl.html)
 
 # APIs ¿Para qué?
 
-## Haber venido
+## Aplicación estándar
 
-![Haber venido](../img/julio-iglesias-haber-venido.png)
+![](../img/esquema-api-rest-01.png)
 
-## Aplicación
+## Introducimos API
 
-![Aplicación](../img/esquema-api-rest-01.png)
+![](../img/esquema-api-rest-02.png)
+
+## Separación Roles
+
+![](../img/esquema-api-rest-03.png)
+
+## ¿Y ahora qué?
+
+![](../img/esquema-api-rest-04.png)
+
+## Servicios externos
+
+![](../img/esquema-api-rest-05.png)
+
+## Apps clientes
+
+![](../img/esquema-api-rest-06.png)
+
+## Apps de servicios
+
+![](../img/esquema-api-rest-07.png)
+
+## Apps mixtas
+
+![](../img/esquema-api-rest-08.png)
 
 ## Plataforma
 
-![Plataforma](../img/esquema-api-rest-09.png)
+![](../img/esquema-api-rest-09.png)
 
 ## ¿Quien expone APIs?
 
-![APIs 3](../img/apis-3.png)
+![](../img/apis-1.png)
+
+## ¿Quien expone APIs?
+
+![](../img/apis-2.png)
+
+## ¿Quien expone APIs?
+
+![](../img/apis-3.png)
 
 ## Exponlas tú
 
-![Ejemlo Taza](../img/cup.jpg)
+![](../img/cup.png)
 
 ## Exponlas tú
 
-![Ejemlo Taza Relaxing Cup](../img/cup-relaxing.jpg)
+![](../img/cup-relaxing.png)
 
 ## Exponlas tú
 
-![Ejemlo Taza Relaxing Cup Guay](../img/cup-relaxing-guay.jpg)
+![](../img/cup-ecce-homo.png)
 
 # APIs RESTful
 
 ## ¿Qué es REST?
 
-- Una **URL** (Uniform Resource Locator) representa un **recurso**.
+- REST (**Representational State Transfer**) es una técnica de arquitectura de
+  software para sistemas hipermedia distribuidos como la World Wide Web.
+
+- En REST una **URL** (Uniform Resource Locator) representa un **recurso**.
 
 - Se puede acceder al recurso o modificarlo mediante los **métodos del protocolo HTTP**:
 
-        - POST, GET, PUT, DELETE
+        GET, POST, PUT, DELETE
 
 ## Ejemplo API
 
@@ -120,7 +154,7 @@
 
     - GET > Devuelve todas las charlas.
     - POST > Crear una nueva charla.
-    
+
 - **http://myhost.com/talk/123**
 
     - GET > Devuelve la charla con id=123
@@ -151,88 +185,112 @@
 - Es **multiformato** (HTML, XML, JSON, etc.).
 - Se complementa muy bien con **AJAX**.
 
-# Clientes multidispositivo
+## REST vs RESTful
 
+- REST se refiere a un tipo de arquitectura de software
+
+    - Se utiliza como **nombre**
+    - Se utiliza como por ejemplo: success = éxito.
+
+- Si un servicio web es REST**ful** indica que implementa dicha arquitectura.
+
+    - Se utiliza como **adjetivo**
+    - Se utiliza como por ejemplo: success**ful** = éxito**so**).
+
+## REST vs RESTful
+
+- A veces el **ful** se confunde con **full** = completo.
+
+    - Y se refiere a los servicios web REST**full** 
+
+            Aquellos que implementan una API con
+            todos los métodos del protócolo HTTP.
+
+    - Y se refiere a los servicios web REST (**sin el full**)
+
+            Aquellos que NO implementan una API con
+            todos los métodos del protócolo HTTP.
+
+# Clientes multidispositivo
 
 ## Distintos dispositivos
 
-![Distintos dispositivos](../img/distintos-dispositivos.jpg)
+![](../img/distintos-dispositivos.png)
 
 ## Distintos OS
 
-![Distintos Sistemas Operativos 1](../img/distintos-so-moviles-1.png)
+![](../img/distintos-so-moviles-1.png)
 
 ## Distintos OS
 
-![Distintos Sistemas Operativos 2](../img/distintos-so-moviles-2.png)
+![](../img/distintos-so-moviles-2.png)
 
 ## Distintos navegadores
 
-![Distintos navegadores](../img/distintos-navegadores.png)
+![](../img/distintos-navegadores.png)
 
 ## ¡¡¡Socorro!!!
 
-![Simpson Socorro](../img/simpson-socorro.png)
+![](../img/simpson-socorro.png)
 
 ## Al rescate
 
-![Al rescate](../img/al-rescate.png)
+![](../img/al-rescate.png)
 
 ## Graceful Degradation
 
-![Graceful Degradation](../img/responsive-design-graceful-degradation.png)
+![](../img/responsive-design-graceful-degradation.png)
 
 ## Graceful Degradation
 
-![Graceful Degradation Mal](../img/responsive-design-graceful-degradation-mal.png)
+![](../img/responsive-design-graceful-degradation-mal.png)
 
 ## Progressive Enhancement
 
-![Progressive Enhancement](../img/responsive-design-progressive-enhancement.png)
+![](../img/responsive-design-progressive-enhancement.png)
 
 ## Phonegap
 
-![Phonegap](../img/phonegap-build.png)
+![](../img/phonegap-build.png)
 
 # Lungo.js
 
 ## Competidores
 
-- [jQTouch](http://jqtjs.com/)
-- [Sencha Touch](http://www.sencha.com/products/touch/)
-- [jQueryMobile](http://jquerymobile.com/)
-- [hammer.js](http://eightmedia.github.io/hammer.js/)
+- jQTouch: [http://jqtjs.com/](http://jqtjs.com/)
+- Sencha Touch: [http://www.sencha.com/products/touch/](http://www.sencha.com/products/touch/)
+- jQueryMobile: [http://jquerymobile.com/](http://jquerymobile.com/)
+- hammer.js: [http://eightmedia.github.io/hammer.js/](http://eightmedia.github.io/hammer.js/)
 
 ## ¿Por qué Lungo?
 
-![Nubes Lungo](../img/nubes-por-que-lungo.png)
+![](../img/nubes-por-que-lungo.png)
 
-## Licencia GPL
+## ¿Licencia GPL?
 
-![I Love GPL](../img/i-love-gpl.png)
+![](../img/i-love-gpl.png)
 
-## Española
+## ¿Español?
 
-![I Love Espania](../img/i-love-espania.png)
+![](../img/i-love-espania.png)
 
 ## Pues no
 
-![Julio Iglesias Equivocado](../img/julio-iglesias-equivocado.png)
+![](../img/julio-iglesias-equivocado.png)
 
 ## Me gusta
 
-![A que huelen las nubes](../img/nubes-a-que-huelen.png)
+![](../img/nubes-a-que-huelen.png)
 
 ## Aburrido
 
-![Gato Aburrido](../img/gato-aburrido.png)
+![](../img/gato-aburrido.png)
 
 # Código
 
 ## Aplausos
 
-![Aplausos ANimados](../img/aplausos.gif)
-
+![](../img/aplausos.gif)
 
 ## Directorios
 
@@ -243,7 +301,7 @@
     - **html**: los HTML con una carpeta para cada entidad del domino
     - **js**: los JS con una carpeta para cada entidad del domino
     - **lib**: carpeta con las dependencias a otros proyectos
-    
+
         - Lungo depende de Quo que es una librería de los mismos auotres
           de 'tipo' jQuery enfocada a móviles
 
@@ -254,9 +312,6 @@
 $$('document').ready(function(){
     Lungo.dom('input[type=search]').on('keyup', ...);
 });
-
-// Date format
-var util_dateFormat = "DD/MM/YYYY HH:mm:ss";
 
 // Server URL
 var util_server_url = "http://localhost:3000";
@@ -291,11 +346,7 @@ var util_ajaxDelete = function(url, data, callback) {...};
    <div class="form">
     <fieldset>
      <label>NAME:</label><input type="text" id="talkName" />
-    </fieldset>
-    ...
-    <fieldset>
-     <label>NUM:</label><input type="number" id="talkNum" />
-    </fieldset>
+    </fieldset>...
    </div>
    <div>
     <a href="#addTalk" id="addTalk" class="button">Add</a>
@@ -303,13 +354,12 @@ var util_ajaxDelete = function(url, data, callback) {...};
    </div>
   </article>
  </section>
- <script>Lungo.init({});</script>
 </body>
 ~~~
 
 ## html/talk/talk-add.html
 
-![Add Talk](../img/demo-talk-add.png)
+![](../img/demo-talk-add.png)
 
 ## js/talk/talk-add.js
 
@@ -334,7 +384,6 @@ $$('#addTalk').tap(function(){
    });
   }
  });
-
 });
 ~~~
 
@@ -358,25 +407,24 @@ $$('#addTalk').tap(function(){
    ...
   </article>
  </section>
- <script>Lungo.init({});</script>
 </body>
 ~~~
 
 ## html/talk/talk-edit.html
 
-![Edit Talk](../img/demo-talk-edit.png)
+![](../img/demo-talk-edit.png)
 
 ## html/talk/talk-edit.html
 
-![Delete Talk](../img/demo-talk-delete.png)
+![](../img/demo-talk-delete.png)
 
 ## js/talk/talk-get.js
 
 ~~~{.JavaScript}
 $$('document').ready(function(){
- 
+
  var talkId = util_urlParams["talkId"];
- 
+
  // get data from server
  util_ajaxGet('/talk/'+talkId, {}, function(json) {
   if(!json || json.error) {
@@ -387,16 +435,12 @@ $$('document').ready(function(){
    drawTalk(talk);
   }
  });
- 
+
  // draw data
  var drawTalk = function(talk) {
   $$("#talkName").val(talk.talkName);
-  $$("#talkDate").val(util_dateToString(talk.talkDate));
-  $$("#talkSpeaker").val(talk.talkSpeaker);
-  $$("#talkSpeakerMail").val(talk.talkSpeakerMail);
-  $$("#talkPoints").val(""+talk.talkPoints);
+  ...
  };
-
 });
 ~~~
 
@@ -409,10 +453,7 @@ $$('#saveTalk').tap(function(){
 
  var data = {
   talkName:        $$("#talkName").val(),
-  talkDate:        util_stringToDate($$("#talkDate").val()),
-  talkSpeaker:     $$("#talkSpeaker").val(),
-  talkSpeakerMail: $$("#talkSpeakerMail").val(),
-  talkPoints:   $$("#talkPoints").val()
+  ...
  };
 
  // send data to server
@@ -425,7 +466,6 @@ $$('#saveTalk').tap(function(){
    });
   }
  });
-
 });
 ~~~
 
@@ -445,8 +485,7 @@ $$('#deleteTalk').tap(function(){
     window.location.replace('talk-list.html');
    });
   }
- }); 
-
+ });
 });
 ~~~
 
@@ -471,17 +510,16 @@ $$('#deleteTalk').tap(function(){
    <ul id="talks"></ul>
   </article>
  </section>
- <script>Lungo.init({});</script>
 </body>
 ~~~
 
 ## html/talk/talk-list.html
 
-![Talks List](../img/demo-talk-list.png)
+![](../img/demo-talk-list.png)
 
 ## html/talk/talk-list.html
 
-![Talks List Search](../img/demo-talk-list-search.png)
+![](../img/demo-talk-list-search.png)
 
 ## js/talk/talk-list.js
 
@@ -493,12 +531,10 @@ $$('document').ready(function(){
   if(!json || json.error) {
    util_errorNotification('ERROR retrieving talks', json.error);
   } else {
-   var talks = json;
-   console.log(talks.length+' talks retrieved');
-   drawTalks(talks);
+   drawTalks(json);
   }
  });
- 
+
  // draw data
  var drawTalks = function(talks) {
   for (var i = 0; i < talks.length; i++) {
@@ -506,11 +542,9 @@ $$('document').ready(function(){
    $$("#talks").append(
     '<li data-action="search" class="selectable">'+
      '<a href="talk-edit.html?talkId='+talk._id+'">'+
-      '<strong>'+talk.talkName+'</strong>'+
-      '<small>'+talk.talkSpeaker+'</small></a></li>');
+      '<strong>'+talk.talkName+'</strong></a></li>');
   }
  };
-
 });
 ~~~
 
