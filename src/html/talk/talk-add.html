@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="es-ES">
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Add Talk</title>
+    
+    <meta name="description" content="API RESTful lungojs client example">
+    <meta name="author" content="Adolfo Sanz De Diego (@asanzdiego)">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cleartype" content="on">
+
+    <link rel="stylesheet" type="text/css" href="../../lib/lungo/lungo.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="../../lib/lungo/lungo.icon.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="../../lib/lungo/lungo.theme.css" media="all" />
+
+</head>
+<body class="app">
+    <section id="main" data-transition="">
+        <header data-title="Add Talk" class="extended"></header>
+        <footer>
+            <nav>
+                <a href="talk-list.html" data-icon="list"></a>
+                <a href="talk-add.html" data-icon="plus" class="active"></a>
+            </nav>
+        </footer>
+        <article id="main-article" class="active list indented scroll">
+            <div class="form">
+                <fieldset>
+                    <label>TALK NAME:</label>
+                    <input type="text" id="talkName" value="Enter the talk name" />
+                </fieldset>
+                <fieldset>
+                    <label>TALK DATE:</label>
+                    <input type="text" id="talkDate" value="dd/mm/yyyy hh:mm:ss" />
+                </fieldset>
+                <fieldset>
+                    <label>SPEAKER NAME:</label>
+                    <input type="text" id="talkSpeaker" value="Enter the speaker name" />
+                </fieldset>
+                <fieldset>
+                    <label>SPEAKER MAIL:</label>
+                    <input type="text" id="talkSpeakerMail" value="speaker@mail.es" />
+                </fieldset>
+                <fieldset>
+                    <label>TALK POINTS:</label>
+                    <input type="number" id="talkPoints" value="0" />
+                </fieldset>
+            </div>
+            <div>
+                <a href="#addTalk" id="addTalk" class="button">Add</a>
+                <a href="talk-list.html" class="button on-right cancel">Cancel</a>
+            </div>
+        </article>
+    </section>
+
+    <!-- Lungo - Dependencies -->
+    <script src="../../lib/quo/quo.js"></script>
+    <script src="../../lib/lungo/lungo.js"></script>
+    <!-- Lungo - Sandbox App -->
+    <script>
+        Lungo.init({});
+    </script>
+    <!-- Moment - Dependencies -->
+    <script src="../../lib/moment/moment.js"></script>
+    <!-- Others  - Dependencies -->
+    <script src="../../js/util.js"></script>
+    <script src="../../js/talk/talk-add.js"></script
+</body>
+</html>

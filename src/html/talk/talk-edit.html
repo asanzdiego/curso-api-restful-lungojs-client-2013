@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html lang="es-ES">
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Edit Talk</title>
+    
+    <meta name="description" content="API RESTful lungojs client example">
+    <meta name="author" content="Adolfo Sanz De Diego (@asanzdiego)">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cleartype" content="on">
+
+    <link rel="stylesheet" type="text/css" href="../../lib/lungo/lungo.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="../../lib/lungo/lungo.icon.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="../../lib/lungo/lungo.theme.css" media="all" />
+
+</head>
+<body class="app">
+    <section id="main" data-transition="">
+        
+        <header data-title="Edit Talk" class="extended"></header>
+        
+        <nav data-control="groupbar">
+
+            <a href="#editTalkArticle" data-view-article="editTalkArticle" class="active"
+                data-icon="pencil" data-title="Edit Talk">Edit</a>
+
+            <a href="#deleteTalkArticle" data-view-article="deleteTalkArticle"
+                data-icon="trash" data-title="Delete Talk">Delete</a>
+        </nav>
+        
+        <footer>
+            <nav>
+                <a href="talk-list.html" data-icon="list" class="active"></a>
+                <a href="talk-add.html" data-icon="plus"></a>
+            </nav>
+        </footer>
+        
+        <article id="editTalkArticle" class="list indented scroll">
+        
+            <div id="edit-talk-form" class="form">
+                <fieldset>
+                    <label>TALK NAME:</label>
+                    <input type="text" id="talkName" value="" />
+                </fieldset>
+                <fieldset>
+                    <label>TALK DATE:</label>
+                    <input type="text" id="talkDate" value="" />
+                </fieldset>
+                <fieldset>
+                    <label>SPEAKER NAME:</label>
+                    <input type="text" id="talkSpeaker" value="" />
+                </fieldset>
+                <fieldset>
+                    <label>SPEAKER MAIL:</label>
+                    <input type="text" id="talkSpeakerMail" value="" />
+                </fieldset>
+                <fieldset>
+                    <label>TALK POINTS:</label>
+                    <input type="number" id="talkPoints" value="" />
+                </fieldset>
+            </div>
+        
+            <div id="save-talk-buttons">
+                <a href="#saveTalk" id="saveTalk" class="button">Save</a>
+                <a href="#usersListArticle" data-router="article" class="button on-right cancel">Cancel</a>
+            </div>
+        
+        </article>
+
+        <article id="deleteTalkArticle" class="list indented scroll">
+        
+            <ul class="talk-view"></ul>
+            
+            <ul id="delete-talk-question">
+                <li class="dark">
+                    <small>You will delete this talk</small>
+                    <strong>Are you sure?</strong>
+                </li>
+            </ul>
+        
+            <div id="delete-talk-buttons">
+                <a href="#deleteTalk" id="deleteTalk" class="button">Delete</a>
+                <a href="#usersListArticle" data-router="article" class="button on-right cancel">Cancel</a>
+            </div>
+        
+        </article>
+
+    </section>
+
+    <!-- Lungo - Dependencies -->
+    <script src="../../lib/quo/quo.js"></script>
+    <script src="../../lib/lungo/lungo.js"></script>
+    <!-- Lungo - Sandbox App -->
+    <script>
+        Lungo.init({});
+    </script>
+    <!-- Moment - Dependencies -->
+    <script src="../../lib/moment/moment.js"></script>
+    <!-- Other - Dependencies -->
+    <script src="../../js/util.js"></script>
+    <script src="../../js/talk/talk-delete.js"></script>
+    <script src="../../js/talk/talk-get.js"></script>
+    <script src="../../js/talk/talk-update.js"></script>
+</body>
+</html>
