@@ -40,19 +40,32 @@
 
             - Java, Android
             - JavaScript, jQuery
-            - JSF, Spring, Hibernate y Groovy&Grails
+            - JSF, Spring, Hibernate
+            - Groovy & Grails
 
     - **Me gusta programar**
 
 ## Hackalover
 
-![](../img/hackathon-lovers.png)
+![](../img/hackathon-lovers-logo.png)
 
 - **Para los amantes de los hackathones**
 
 - **Meetup**: [http://www.meetup.com/Hackathon-Lovers/](http://www.meetup.com/Hackathon-Lovers/)
 
 - **Twitter**: [http://twitter.com/HackathonLovers](http://twitter.com/HackathonLovers)
+
+## Tweets Sentiment
+
+![](../img/tweets-sentiment-logo.png)
+
+- Es un **analizador de tweets** que extrae información semántica para conocer
+si el sentimiento general de los tweets de un determinado tema
+es positivo o negativo.
+
+- **Web**: [http://tweetssentiment.com/](http://tweetssentiment.com/)
+
+- **Twitter**: [http://twitter.com/TweetsSentiment](http://twitter.com/TweetsSentiment)
 
 ## ¿Donde encontrarme?
 
@@ -65,13 +78,37 @@
     - Blog:     [http://asanzdiego.blogspot.com.es](http://asanzdiego.blogspot.com.es)
     - LinkedIn: [http://www.linkedin.com/in/asanzdiego](http://www.linkedin.com/in/asanzdiego)
 
+## Créditos
+
+- Estas **transparencias** están hechas con:
+
+    - [https://github.com/asanzdiego/deck.js-pandoc-slides](https://github.com/asanzdiego/deck.js-pandoc-slides)
+
 ## Licencia
 
 - Estas **transparencias** están bajo una licencia:
-    - Creative Commons Reconocimiento-CompartirIgual 3.0 [http://creativecommons.org/licenses/by-sa/3.0/es/](http://creativecommons.org/licenses/by-sa/3.0/es/)
+    - [Creative Commons Reconocimiento-CompartirIgual 3.0](http://creativecommons.org/licenses/by-sa/3.0/es/)
 
-- El **código fuente** de los programas están bajo una licencia:
-    - GPL 3.0 [http://www.viti.es/gnu/licenses/gpl.html](http://www.viti.es/gnu/licenses/gpl.html)
+- El **código** de los programas están bajo una licencia:
+    - [GPL 3.0](http://www.viti.es/gnu/licenses/gpl.html)
+
+## Fuentes
+
+- Transparencias:
+
+    - SlideShare:
+
+        - [http://www.slideshare.net/asanzdiego/api-restfullungojsclientbeamer](http://www.slideshare.net/asanzdiego/api-restfullungojsclientbeamer)
+
+    - GitHub Pages:
+
+        - [http://asanzdiego.github.io/curso-api-restful-lungojs-client-2013/slides/export/api-restful-lungojs-client.slides.html](http://asanzdiego.github.io/curso-api-restful-lungojs-client-2013/slides/export/api-restful-lungojs-client.slides.html)
+
+- Código:
+
+    - GitHub:
+
+        - [http://github.com/asanzdiego/curso-api-restful-lungojs-client-2013/tree/master/src](http://github.com/asanzdiego/curso-api-lungojs-client-server-2013/tree/master/src)
 
 # APIs ¿Para qué?
 
