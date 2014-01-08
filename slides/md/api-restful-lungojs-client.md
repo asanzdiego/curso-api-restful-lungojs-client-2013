@@ -34,7 +34,8 @@
 
     - **Profesor de FP de informática**:
 
-            - Hardware, Sistemas Operativos, Redes, Programación
+            - Hardware, Sistemas Operativos
+            - Redes, Programación
 
     - **Formador Freelance**:
 
@@ -82,7 +83,7 @@ es positivo o negativo.
 
 - Estas **transparencias** están hechas con:
 
-    - [https://github.com/asanzdiego/deck.js-pandoc-slides](https://github.com/asanzdiego/deck.js-pandoc-slides)
+    - [https://github.com/asanzdiego/reveal.js-pandoc-slides](https://github.com/asanzdiego/reveal.js-pandoc-slides)
 
 ## Licencia
 
@@ -98,11 +99,11 @@ es positivo o negativo.
 
     - SlideShare:
 
-        - [http://www.slideshare.net/asanzdiego/api-restfullungojsclientbeamer](http://www.slideshare.net/asanzdiego/api-restfullungojsclientbeamer)
+        - [http://www.slideshare.net/asanzdiego/cliente-api-rest-con-lungojs](http://www.slideshare.net/asanzdiego/cliente-api-rest-con-lungojs)
 
     - GitHub Pages:
 
-        - [http://asanzdiego.github.io/curso-api-restful-lungojs-client-2013/slides/export/api-restful-lungojs-client.slides.html](http://asanzdiego.github.io/curso-api-restful-lungojs-client-2013/slides/export/api-restful-lungojs-client.slides.html)
+        - [http://asanzdiego.github.io/curso-api-restful-lungojs-client-2013/slides/export/api-restful-lungojs-client-reveal-slides](http://asanzdiego.github.io/curso-api-restful-lungojs-client-2013/slides/export/api-restful-lungojs-client-reveal-slides)
 
 - Código:
 
