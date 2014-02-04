@@ -2,13 +2,13 @@
 
 ## Transparencias
 
-- SlideShare:
+- [SlideShare](http://www.slideshare.net/asanzdiego/cliente-api-rest-con-lungojs)
 
-    - [http://www.slideshare.net/asanzdiego/cliente-api-rest-con-lungojs](http://www.slideshare.net/asanzdiego/cliente-api-rest-con-lungojs)
+- [Deck Slides](http://asanzdiego.github.io/curso-api-restful-lungojs-client-2013/slides/export/cliente-api-rest-con-lungojs-deck-slides.html)
 
-- GitHub Pages:
+- [Reveal Slides](http://asanzdiego.github.io/curso-api-restful-lungojs-client-2013/slides/export/cliente-api-rest-con-lungojs-reveal-slides.html)
 
-    - [http://asanzdiego.github.io/curso-api-restful-lungojs-client-2013/slides/export/api-restful-lungojs-client.slides.html](http://asanzdiego.github.io/curso-api-restful-lungojs-client-2013/slides/export/api-restful-lungojs-client.slides.html)
+- [Plain HTML](http://asanzdiego.github.io/curso-api-restful-lungojs-client-2013/slides/export/cliente-api-rest-con-lungojs.html)
 
 ## Código
 
