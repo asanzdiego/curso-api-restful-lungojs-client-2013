@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="generator" content="pandoc" />
+  <meta name="description" content="Cliente API REST con LungoJS" />
+  <meta name="author" content="Adolfo Sanz De Diego" />
+  <meta name="copyright" content="Cliente API REST con LungoJS - Adolfo Sanz De Diego -  Octubre 2013" /> 
+  <title>Cliente API REST con LungoJS</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/reveal.min.css">
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/simple.css" id="theme">
+  <!--
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/default.css" id="theme">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/beige.css" id="theme">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/blood.css" id="theme">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/default.css" id="theme">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/moon.css" id="theme">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/night.css" id="theme">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/serif.css" id="theme">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/sky.css" id="theme">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/solarized.css" id="theme">
+  -->
+
+
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<link rel="stylesheet" href="../lib/reveal.js-master/css/print/pdf.css" type="text/css" media="print">
+
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/simple.css" type="text/css" media="print">
+  <!--
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/default.css" type="text/css" media="print">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/beige.css" type="text/css" media="print">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/blood.css" type="text/css" media="print">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/default.css" type="text/css" media="print">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/moon.css" type="text/css" media="print">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/night.css" type="text/css" media="print">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/serif.css" type="text/css" media="print">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/simple.css" type="text/css" media="print">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/sky.css" type="text/css" media="print">
+  <link rel="stylesheet" href="../lib/reveal.js-master/css/theme/solarized.css" type="text/css" media="print">
+  -->
+
+  <!-- Overwrite images -->
+  <style type="text/css">
+    pre {
+      background: rgba(255, 255, 255, 0.9);
+      color: #222;
+    }
+    code {
+      white-space: pre;
+    }
+    .reveal section img {
+      margin: 15px 0px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+    strong {
+      color: #777
+    }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Cliente API REST con LungoJS</h2>
+    <h2 class="author">Adolfo Sanz De Diego</h2>
+    <h3 class="date">Octubre 2013</h3>
+</section>
+
+<section><section id="acerca-de" class="titleslide slide level1"><h1><span class="header-section-number">1</span> Acerca de</h1></section><section id="el-gul" class="slide level2">
+<h2><span class="header-section-number">1.1</span> El GUL</h2>
+<ul>
+<li>El GUL es el <strong>Grupo de Usuarios de Linux de la UC3M</strong>.</li>
+<li>Grupo de personas con inquietudes en torno a la informática.</li>
+<li>Con la idea común de la utilización y promoción del <strong>Software Libre</strong>.</li>
+<li>Quedamos de vez en cuando y organizamos actividades sobre todo esto.</li>
+<li>El punto de unión es la <strong>lista de correo</strong> que está abierta a todo el mundo.</li>
+</ul>
+</section><section id="dónde-encontrarnos" class="slide level2">
+<h2><span class="header-section-number">1.2</span> ¿Dónde encontrarnos?</h2>
+<ul>
+<li>Twitter: <a href="http://twitter.com/guluc3m">http://twitter.com/guluc3m</a></li>
+<li>Lista: <a href="mailto:gul@gul.uc3m.es">gul@gul.uc3m.es</a></li>
+<li>Ftp: <a href="ftp://ftp.gul.uc3m.es">ftp://ftp.gul.uc3m.es</a></li>
+<li>Web: <a href="http://www.gul.uc3m.es">http://www.gul.uc3m.es</a></li>
+<li>Podcast: <a href="http://holamundo.gul.es/">http://holamundo.gul.es/</a></li>
+<li>Blog: <a href="http://planeta.gul.uc3m.es/">http://planeta.gul.uc3m.es/</a></li>
+<li>Linkedin: <a href="http://www.linkedin.com/groups?gid=3451836">http://www.linkedin.com/groups?gid=3451836</a></li>
+</ul>
+</section><section id="adolfo-sanz-de-diego" class="slide level2">
+<h2><span class="header-section-number">1.3</span> Adolfo Sanz De Diego</h2>
+<ul>
+<li><p><strong>Antiguo programador web JEE</strong></p></li>
+<li><p>Hoy en día:</p>
+<ul>
+<li><p><strong>Profesor de FP de informática</strong>:</p>
+<ul>
+<li>Hardware, Sistemas Operativos</li>
+<li>Redes, Programación</li>
+</ul></li>
+<li><p><strong>Formador Freelance</strong>:</p>
+<ul>
+<li>Java, Android</li>
+<li>JavaScript, jQuery</li>
+<li>JSF, Spring, Hibernate</li>
+<li>Groovy &amp; Grails</li>
+</ul></li>
+<li><p><strong>Me gusta programar</strong></p></li>
+</ul></li>
+</ul>
+</section><section id="hackalover" class="slide level2">
+<h2><span class="header-section-number">1.4</span> Hackalover</h2>
+<figure>
+<img src="../img/hackathon-lovers-logo.png" />
+</figure>
+<ul>
+<li><p><strong>Para los amantes de los hackathones</strong></p>
+<ul>
+<li><strong>Meetup</strong>: <a href="http://www.meetup.com/Hackathon-Lovers/">http://www.meetup.com/Hackathon-Lovers/</a></li>
+<li><strong>Twitter</strong>: <a href="http://twitter.com/HackathonLovers">http://twitter.com/HackathonLovers</a></li>
+<li><strong>Blog</strong>: <a href="http://hackathonlovers.tumblr.com/">http://hackathonlovers.tumblr.com/</a></li>
+<li><strong>LinkedIn</strong>: <a href="http://www.linkedin.com/groups/Hackathon-Lovers-6510465">http://www.linkedin.com/groups/Hackathon-Lovers-6510465</a></li>
+<li><strong>YouTube</strong>: <a href="http://www.youtube.com/channel/UCRwSe7jK-y62BMvIiNBV1qw">http://www.youtube.com/channel/UCRwSe7jK-y62BMvIiNBV1qw</a></li>
+</ul></li>
+</ul>
+</section><section id="tweets-sentiment" class="slide level2">
+<h2><span class="header-section-number">1.5</span> Tweets Sentiment</h2>
+<figure>
+<img src="../img/tweets-sentiment-logo.png" />
+</figure>
+<ul>
+<li><p>Es un <strong>analizador de tweets</strong> que extrae información semántica para conocer si el sentimiento general de los tweets de un determinado tema es positivo o negativo.</p>
+<ul>
+<li><strong>Web</strong>: <a href="http://tweetssentiment.com/">http://tweetssentiment.com/</a></li>
+<li><strong>Twitter</strong>: <a href="http://twitter.com/TweetsSentiment">http://twitter.com/TweetsSentiment</a></li>
+</ul></li>
+</ul>
+</section><section id="donde-encontrarme" class="slide level2">
+<h2><span class="header-section-number">1.6</span> ¿Donde encontrarme?</h2>
+<ul>
+<li><p>Mi nick: <strong>asanzdiego</strong></p>
+<ul>
+<li>AboutMe: <a href="http://about.me/asanzdiego">http://about.me/asanzdiego</a></li>
+<li>GitHub: <a href="http://github.com/asanzdiego">http://github.com/asanzdiego</a></li>
+<li>Twitter: <a href="http://twitter.com/asanzdiego">http://twitter.com/asanzdiego</a></li>
+<li>Blog: <a href="http://asanzdiego.blogspot.com.es">http://asanzdiego.blogspot.com.es</a></li>
+<li>LinkedIn: <a href="http://www.linkedin.com/in/asanzdiego">http://www.linkedin.com/in/asanzdiego</a></li>
+<li>Google+: <a href="http://plus.google.com/+AdolfoSanzDeDiego">http://plus.google.com/+AdolfoSanzDeDiego</a></li>
+</ul></li>
+</ul>
+</section><section id="créditos" class="slide level2">
+<h2><span class="header-section-number">1.7</span> Créditos</h2>
+<ul>
+<li><p>Estas <strong>transparencias</strong> están hechas con:</p>
+<ul>
+<li><a href="https://github.com/asanzdiego/markdownslides">https://github.com/asanzdiego/markdownslides</a></li>
+</ul></li>
+</ul>
+</section><section id="licencia" class="slide level2">
+<h2><span class="header-section-number">1.8</span> Licencia</h2>
+<ul>
+<li>Estas <strong>transparencias</strong> están bajo una licencia:
+<ul>
+<li><a href="http://creativecommons.org/licenses/by-sa/3.0/es/">Creative Commons Reconocimiento-CompartirIgual 3.0</a></li>
+</ul></li>
+<li>El <strong>código</strong> de los programas están bajo una licencia:
+<ul>
+<li><a href="http://www.viti.es/gnu/licenses/gpl.html">GPL 3.0</a></li>
+</ul></li>
+</ul>
+</section><section id="fuentes" class="slide level2">
+<h2><span class="header-section-number">1.9</span> Fuentes</h2>
+<ul>
+<li><p>Transparencias</p>
+<ul>
+<li><p><a href="http://www.slideshare.net/asanzdiego/cliente-api-rest-con-lungojs">SlideShare</a></p></li>
+<li><p><a href="http://asanzdiego.github.io/curso-api-restful-lungojs-client-2013/slides/export/cliente-api-rest-con-lungojs-deck-slides.html">Deck Slides</a></p></li>
+<li><p><a href="http://asanzdiego.github.io/curso-api-restful-lungojs-client-2013/slides/export/cliente-api-rest-con-lungojs-reveal-slides.html">Reveal Slides</a></p></li>
+<li><p><a href="http://asanzdiego.github.io/curso-api-restful-lungojs-client-2013/slides/export/cliente-api-rest-con-lungojs.html">Plain HTML</a></p></li>
+</ul></li>
+<li><p>Código</p>
+<ul>
+<li><a href="https://github.com/asanzdiego/curso-api-restful-lungojs-client-2013/tree/master/src">https://github.com/asanzdiego/curso-api-restful-lungojs-client-2013/tree/master/src</a></li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="apis-para-qué" class="titleslide slide level1"><h1><span class="header-section-number">2</span> APIs ¿Para qué?</h1></section><section id="aplicación-estándar" class="slide level2">
+<h2><span class="header-section-number">2.1</span> Aplicación estándar</h2>
+<figure>
+<img src="../img/esquema-api-rest-01.png" />
+</figure>
+</section><section id="introducimos-api" class="slide level2">
+<h2><span class="header-section-number">2.2</span> Introducimos API</h2>
+<figure>
+<img src="../img/esquema-api-rest-02.png" />
+</figure>
+</section><section id="separación-roles" class="slide level2">
+<h2><span class="header-section-number">2.3</span> Separación Roles</h2>
+<figure>
+<img src="../img/esquema-api-rest-03.png" />
+</figure>
+</section><section id="y-ahora-qué" class="slide level2">
+<h2><span class="header-section-number">2.4</span> ¿Y ahora qué?</h2>
+<figure>
+<img src="../img/esquema-api-rest-04.png" />
+</figure>
+</section><section id="servicios-externos" class="slide level2">
+<h2><span class="header-section-number">2.5</span> Servicios externos</h2>
+<figure>
+<img src="../img/esquema-api-rest-05.png" />
+</figure>
+</section><section id="apps-clientes" class="slide level2">
+<h2><span class="header-section-number">2.6</span> Apps clientes</h2>
+<figure>
+<img src="../img/esquema-api-rest-06.png" />
+</figure>
+</section><section id="apps-de-servicios" class="slide level2">
+<h2><span class="header-section-number">2.7</span> Apps de servicios</h2>
+<figure>
+<img src="../img/esquema-api-rest-07.png" />
+</figure>
+</section><section id="apps-mixtas" class="slide level2">
+<h2><span class="header-section-number">2.8</span> Apps mixtas</h2>
+<figure>
+<img src="../img/esquema-api-rest-08.png" />
+</figure>
+</section><section id="plataforma" class="slide level2">
+<h2><span class="header-section-number">2.9</span> Plataforma</h2>
+<figure>
+<img src="../img/esquema-api-rest-09.png" />
+</figure>
+</section><section id="quien-expone-apis" class="slide level2">
+<h2><span class="header-section-number">2.10</span> ¿Quien expone APIs?</h2>
+<figure>
+<img src="../img/apis-1.png" />
+</figure>
+</section><section id="quien-expone-apis-1" class="slide level2">
+<h2><span class="header-section-number">2.11</span> ¿Quien expone APIs?</h2>
+<figure>
+<img src="../img/apis-2.png" />
+</figure>
+</section><section id="quien-expone-apis-2" class="slide level2">
+<h2><span class="header-section-number">2.12</span> ¿Quien expone APIs?</h2>
+<figure>
+<img src="../img/apis-3.png" />
+</figure>
+</section><section id="exponlas-tú" class="slide level2">
+<h2><span class="header-section-number">2.13</span> Exponlas tú</h2>
+<figure>
+<img src="../img/cup.png" />
+</figure>
+</section><section id="exponlas-tú-1" class="slide level2">
+<h2><span class="header-section-number">2.14</span> Exponlas tú</h2>
+<figure>
+<img src="../img/cup-relaxing.png" />
+</figure>
+</section><section id="exponlas-tú-2" class="slide level2">
+<h2><span class="header-section-number">2.15</span> Exponlas tú</h2>
+<figure>
+<img src="../img/cup-ecce-homo.png" />
+</figure>
+</section></section>
+<section><section id="apis-restful" class="titleslide slide level1"><h1><span class="header-section-number">3</span> APIs RESTful</h1></section><section id="qué-es-rest" class="slide level2">
+<h2><span class="header-section-number">3.1</span> ¿Qué es REST?</h2>
+<ul>
+<li><p>REST (<strong>Representational State Transfer</strong>) es una técnica de arquitectura de software para sistemas hipermedia distribuidos como la World Wide Web.</p></li>
+<li><p>En REST una <strong>URL</strong> (Uniform Resource Locator) representa un <strong>recurso</strong>.</p></li>
+<li><p>Se puede acceder al recurso o modificarlo mediante los <strong>métodos del protocolo HTTP</strong>:</p>
+<pre><code>GET, POST, PUT, DELETE</code></pre></li>
+</ul>
+</section><section id="ejemplo-api" class="slide level2">
+<h2><span class="header-section-number">3.2</span> Ejemplo API</h2>
+<ul>
+<li><p><strong>http://myhost.com/talk</strong></p>
+<ul>
+<li>GET &gt; Devuelve todas las charlas.</li>
+<li>POST &gt; Crear una nueva charla.</li>
+</ul></li>
+<li><p><strong>http://myhost.com/talk/123</strong></p>
+<ul>
+<li>GET &gt; Devuelve la charla con id=123</li>
+<li>PUT &gt; Actualiza la charla con id=123</li>
+<li>DELETE &gt; Borra la charla con id=123</li>
+</ul></li>
+</ul>
+</section><section id="manejo-de-errores" class="slide level2">
+<h2><span class="header-section-number">3.3</span> Manejo de errores</h2>
+<ul>
+<li><p><strong>Se pueden utilizar los errores del protocolo HTTP</strong>:</p>
+<ul>
+<li>200 Successful</li>
+<li>201 Created</li>
+<li>202 Accepted</li>
+<li>301 Moved Permanently</li>
+<li>400 Bad Request</li>
+<li>401 Unauthorised</li>
+<li>402 Payment Required</li>
+<li>403 Forbidden</li>
+<li>404 Not Found</li>
+<li>405 Method Not Allowed</li>
+<li>500 Internal Server Error</li>
+<li>501 Not Implemented</li>
+</ul></li>
+</ul>
+</section><section id="por-qué-rest" class="slide level2">
+<h2><span class="header-section-number">3.4</span> ¿Por qué REST?</h2>
+<ul>
+<li>Es <strong>más sencillo</strong> (tanto la API como la implementación).</li>
+<li>Es <strong>más rápido</strong> (peticiones más lijeras que se pueden cachear).</li>
+<li>Es <strong>multiformato</strong> (HTML, XML, JSON, etc.).</li>
+<li>Se complementa muy bien con <strong>AJAX</strong>.</li>
+</ul>
+</section><section id="rest-vs-restful" class="slide level2">
+<h2><span class="header-section-number">3.5</span> REST vs RESTful</h2>
+<ul>
+<li><p>REST se refiere a un tipo de arquitectura de software</p>
+<ul>
+<li>Se utiliza como <strong>nombre</strong></li>
+<li>Se utiliza como por ejemplo: success = éxito.</li>
+</ul></li>
+<li><p>Si un servicio web es REST<strong>ful</strong> indica que implementa dicha arquitectura.</p>
+<ul>
+<li>Se utiliza como <strong>adjetivo</strong></li>
+<li>Se utiliza como por ejemplo: success<strong>ful</strong> = éxito<strong>so</strong>).</li>
+</ul></li>
+</ul>
+</section><section id="rest-vs-restful-1" class="slide level2">
+<h2><span class="header-section-number">3.6</span> REST vs RESTful</h2>
+<ul>
+<li><p>A veces el <strong>ful</strong> se confunde con <strong>full</strong> = completo.</p>
+<ul>
+<li><p>Y se refiere a los servicios web REST<strong>full</strong></p>
+<pre><code>Aquellos que implementan una API con
+todos los métodos del protócolo HTTP.</code></pre></li>
+<li><p>Y se refiere a los servicios web REST (<strong>sin el full</strong>)</p>
+<pre><code>Aquellos que NO implementan una API con
+todos los métodos del protócolo HTTP.</code></pre></li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="clientes-multidispositivo" class="titleslide slide level1"><h1><span class="header-section-number">4</span> Clientes multidispositivo</h1></section><section id="distintos-dispositivos" class="slide level2">
+<h2><span class="header-section-number">4.1</span> Distintos dispositivos</h2>
+<figure>
+<img src="../img/distintos-dispositivos.png" />
+</figure>
+</section><section id="distintos-os" class="slide level2">
+<h2><span class="header-section-number">4.2</span> Distintos OS</h2>
+<figure>
+<img src="../img/distintos-so-moviles-1.png" />
+</figure>
+</section><section id="distintos-os-1" class="slide level2">
+<h2><span class="header-section-number">4.3</span> Distintos OS</h2>
+<figure>
+<img src="../img/distintos-so-moviles-2.png" />
+</figure>
+</section><section id="distintos-navegadores" class="slide level2">
+<h2><span class="header-section-number">4.4</span> Distintos navegadores</h2>
+<figure>
+<img src="../img/distintos-navegadores.png" />
+</figure>
+</section><section id="socorro" class="slide level2">
+<h2><span class="header-section-number">4.5</span> ¡¡¡Socorro!!!</h2>
+<figure>
+<img src="../img/simpson-socorro.png" />
+</figure>
+</section><section id="al-rescate" class="slide level2">
+<h2><span class="header-section-number">4.6</span> Al rescate</h2>
+<figure>
+<img src="../img/al-rescate.png" />
+</figure>
+</section><section id="graceful-degradation" class="slide level2">
+<h2><span class="header-section-number">4.7</span> Graceful Degradation</h2>
+<figure>
+<img src="../img/responsive-design-graceful-degradation.png" />
+</figure>
+</section><section id="graceful-degradation-1" class="slide level2">
+<h2><span class="header-section-number">4.8</span> Graceful Degradation</h2>
+<figure>
+<img src="../img/responsive-design-graceful-degradation-mal.png" />
+</figure>
+</section><section id="progressive-enhancement" class="slide level2">
+<h2><span class="header-section-number">4.9</span> Progressive Enhancement</h2>
+<figure>
+<img src="../img/responsive-design-progressive-enhancement.png" />
+</figure>
+</section><section id="phonegap" class="slide level2">
+<h2><span class="header-section-number">4.10</span> Phonegap</h2>
+<figure>
+<img src="../img/phonegap-build.png" />
+</figure>
+</section></section>
+<section><section id="lungo.js" class="titleslide slide level1"><h1><span class="header-section-number">5</span> Lungo.js</h1></section><section id="competidores" class="slide level2">
+<h2><span class="header-section-number">5.1</span> Competidores</h2>
+<ul>
+<li>jQTouch: <a href="http://jqtjs.com/">http://jqtjs.com/</a></li>
+<li>Sencha Touch: <a href="http://www.sencha.com/products/touch/">http://www.sencha.com/products/touch/</a></li>
+<li>jQueryMobile: <a href="http://jquerymobile.com/">http://jquerymobile.com/</a></li>
+<li>hammer.js: <a href="http://eightmedia.github.io/hammer.js/">http://eightmedia.github.io/hammer.js/</a></li>
+</ul>
+</section><section id="por-qué-lungo" class="slide level2">
+<h2><span class="header-section-number">5.2</span> ¿Por qué Lungo?</h2>
+<figure>
+<img src="../img/nubes-por-que-lungo.png" />
+</figure>
+</section><section id="licencia-gpl" class="slide level2">
+<h2><span class="header-section-number">5.3</span> ¿Licencia GPL?</h2>
+<figure>
+<img src="../img/i-love-gpl.png" />
+</figure>
+</section><section id="español" class="slide level2">
+<h2><span class="header-section-number">5.4</span> ¿Español?</h2>
+<figure>
+<img src="../img/i-love-espania.png" />
+</figure>
+</section><section id="pues-no" class="slide level2">
+<h2><span class="header-section-number">5.5</span> Pues no</h2>
+<figure>
+<img src="../img/julio-iglesias-equivocado.png" />
+</figure>
+</section><section id="me-gusta" class="slide level2">
+<h2><span class="header-section-number">5.6</span> Me gusta</h2>
+<figure>
+<img src="../img/nubes-a-que-huelen.png" />
+</figure>
+</section><section id="aburrido" class="slide level2">
+<h2><span class="header-section-number">5.7</span> Aburrido</h2>
+<figure>
+<img src="../img/gato-aburrido.png" />
+</figure>
+</section></section>
+<section><section id="código" class="titleslide slide level1"><h1><span class="header-section-number">6</span> Código</h1></section><section id="aplausos" class="slide level2">
+<h2><span class="header-section-number">6.1</span> Aplausos</h2>
+<figure>
+<img src="../img/aplausos.gif" />
+</figure>
+</section><section id="directorios" class="slide level2">
+<h2><span class="header-section-number">6.2</span> Directorios</h2>
+<ul>
+<li><p>Puedes usar la estructura de directorios que quieras.</p></li>
+<li><p>Yo he usado esta:</p>
+<ul>
+<li><strong>html</strong>: los HTML con una carpeta para cada entidad del domino</li>
+<li><strong>js</strong>: los JS con una carpeta para cada entidad del domino</li>
+<li><p><strong>lib</strong>: carpeta con las dependencias a otros proyectos</p>
+<ul>
+<li>Lungo depende de Quo que es una librería de los mismos auotres de 'tipo' jQuery enfocada a móviles</li>
+</ul></li>
+</ul></li>
+</ul>
+</section><section id="jsutil.js" class="slide level2">
+<h2><span class="header-section-number">6.3</span> js/util.js</h2>
+<pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="co">// Searh</span>
+<span class="fu">$$</span>(<span class="st">&#39;document&#39;</span>).<span class="fu">ready</span>(<span class="kw">function</span>(){
+    <span class="ot">Lungo</span>.<span class="fu">dom</span>(<span class="st">&#39;input[type=search]&#39;</span>).<span class="fu">on</span>(<span class="st">&#39;keyup&#39;</span>, ...);
+});
+
+<span class="co">// Server URL</span>
+<span class="kw">var</span> util_server_url = <span class="st">&quot;http://localhost:3000&quot;</span>;
+
+<span class="co">// Error Notification</span>
+<span class="kw">var</span> util_errorNotification = <span class="kw">function</span>(message, error) {
+    <span class="ot">Lungo</span>.<span class="ot">Notification</span>.<span class="fu">error</span>(message, <span class="st">&quot;&quot;</span>, <span class="st">&quot;warning-sign&quot;</span>, <span class="dv">2</span>);
+};
+
+<span class="co">// Métodos REST</span>
+<span class="kw">var</span> util_ajaxGet = <span class="kw">function</span>(url, data, callback) {
+    <span class="ot">$$</span>.<span class="fu">get</span>(util_server_url+url, data, ..., <span class="st">&#39;json&#39;</span>);
+};
+<span class="kw">var</span> util_ajaxPost = <span class="kw">function</span>(url, data, callback) {...};
+<span class="kw">var</span> util_ajaxPut = <span class="kw">function</span>(url, data, callback) {...};
+<span class="kw">var</span> util_ajaxDelete = <span class="kw">function</span>(url, data, callback) {...};</code></pre>
+</section><section id="htmltalktalk-add.html" class="slide level2">
+<h2><span class="header-section-number">6.4</span> html/talk/talk-add.html</h2>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;body</span><span class="ot"> class=</span><span class="st">&quot;app&quot;</span><span class="kw">&gt;</span>
+ <span class="kw">&lt;section</span><span class="ot"> id=</span><span class="st">&quot;main&quot;</span><span class="ot"> data-transition=</span><span class="st">&quot;&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;header</span><span class="ot"> data-title=</span><span class="st">&quot;Add Talk&quot;</span><span class="ot"> class=</span><span class="st">&quot;extended&quot;</span><span class="kw">&gt;&lt;/header&gt;</span>
+  <span class="kw">&lt;footer&gt;</span>
+   <span class="kw">&lt;nav&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;talk-list.html&quot;</span><span class="ot"> data-icon=</span><span class="st">&quot;list&quot;</span><span class="kw">&gt;&lt;/a&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;talk-add.html&quot;</span><span class="ot"> data-icon=</span><span class="st">&quot;plus&quot;</span><span class="ot"> class=</span><span class="st">&quot;active&quot;</span><span class="kw">&gt;&lt;/a&gt;</span>
+   <span class="kw">&lt;/nav&gt;</span>
+  <span class="kw">&lt;/footer&gt;</span>
+  <span class="kw">&lt;article</span><span class="ot"> id=</span><span class="st">&quot;main-article&quot;</span><span class="ot"> class=</span><span class="st">&quot;active list&quot;</span><span class="kw">&gt;</span>
+   <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;form&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;fieldset&gt;</span>
+     <span class="kw">&lt;label&gt;</span>NAME:<span class="kw">&lt;/label&gt;&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;talkName&quot;</span> <span class="kw">/&gt;</span>
+    <span class="kw">&lt;/fieldset&gt;</span>...
+   <span class="kw">&lt;/div&gt;</span>
+   <span class="kw">&lt;div&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#addTalk&quot;</span><span class="ot"> id=</span><span class="st">&quot;addTalk&quot;</span><span class="ot"> class=</span><span class="st">&quot;button&quot;</span><span class="kw">&gt;</span>Add<span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;talk-list.html&quot;</span><span class="ot"> class=</span><span class="st">&quot;button cancel&quot;</span><span class="kw">&gt;</span>Cancel<span class="kw">&lt;/a&gt;</span>
+   <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;/article&gt;</span>
+ <span class="kw">&lt;/section&gt;</span>
+<span class="kw">&lt;/body&gt;</span></code></pre>
+</section><section id="htmltalktalk-add.html-1" class="slide level2">
+<h2><span class="header-section-number">6.5</span> html/talk/talk-add.html</h2>
+<figure>
+<img src="../img/demo-talk-add.png" />
+</figure>
+</section><section id="jstalktalk-add.js" class="slide level2">
+<h2><span class="header-section-number">6.6</span> js/talk/talk-add.js</h2>
+<pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="fu">$$</span>(<span class="st">&#39;#addTalk&#39;</span>).<span class="fu">tap</span>(<span class="kw">function</span>(){
+
+ <span class="kw">var</span> data = {
+  <span class="dt">talkName</span>:        <span class="fu">$$</span>(<span class="st">&quot;#talkName&quot;</span>).<span class="fu">val</span>(),
+  <span class="dt">talkDate</span>:        <span class="fu">util_stringToDate</span>(<span class="fu">$$</span>(<span class="st">&quot;#talkDate&quot;</span>).<span class="fu">val</span>()),
+  <span class="dt">talkSpeaker</span>:     <span class="fu">$$</span>(<span class="st">&quot;#talkSpeaker&quot;</span>).<span class="fu">val</span>(),
+  <span class="dt">talkSpeakerMail</span>: <span class="fu">$$</span>(<span class="st">&quot;#talkSpeakerMail&quot;</span>).<span class="fu">val</span>(),
+  <span class="dt">talkPoints</span>:      <span class="fu">$$</span>(<span class="st">&quot;#talkPoints&quot;</span>).<span class="fu">val</span>()
+ };
+
+ <span class="co">// send data to server</span>
+ <span class="fu">util_ajaxPost</span>(<span class="st">&#39;/talk&#39;</span>, data, <span class="kw">function</span>(json) {
+  <span class="kw">if</span>(!json || <span class="ot">json</span>.<span class="fu">error</span>) {
+   <span class="fu">util_errorNotification</span>(<span class="st">&#39;ERROR adding talk&#39;</span>, <span class="ot">json</span>.<span class="fu">error</span>);
+  } <span class="kw">else</span> {
+   <span class="fu">util_successNotification</span>(<span class="st">&#39;Talk saved&#39;</span>, <span class="kw">function</span>() {
+    <span class="ot">window</span>.<span class="ot">location</span>.<span class="fu">replace</span>(<span class="st">&#39;talk-list.html&#39;</span>);
+   });
+  }
+ });
+});</code></pre>
+</section><section id="htmltalktalk-edit.html" class="slide level2">
+<h2><span class="header-section-number">6.7</span> html/talk/talk-edit.html</h2>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;body</span><span class="ot"> class=</span><span class="st">&quot;app&quot;</span><span class="kw">&gt;</span>
+ <span class="kw">&lt;section</span><span class="ot"> id=</span><span class="st">&quot;main&quot;</span><span class="ot"> data-transition=</span><span class="st">&quot;&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;header</span><span class="ot"> data-title=</span><span class="st">&quot;Edit Talk&quot;</span><span class="ot"> class=</span><span class="st">&quot;extended&quot;</span><span class="kw">&gt;&lt;/header&gt;</span>
+  <span class="kw">&lt;nav</span><span class="ot"> data-control=</span><span class="st">&quot;groupbar&quot;</span><span class="kw">&gt;</span>
+   <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#editTalkArticle&quot;</span> <span class="er">...</span><span class="kw">&gt;</span>Edit<span class="kw">&lt;/a&gt;</span>
+   <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#deleteTalkArticle&quot;</span> <span class="er">...</span><span class="kw">&gt;</span>Delete<span class="kw">&lt;/a&gt;</span>
+  <span class="kw">&lt;/nav&gt;</span>
+  <span class="kw">&lt;footer&gt;</span>
+   ...
+  <span class="kw">&lt;/footer&gt;</span>
+  <span class="kw">&lt;article</span><span class="ot"> id=</span><span class="st">&quot;editTalkArticle&quot;</span><span class="ot"> class=</span><span class="st">&quot;list indented scroll&quot;</span><span class="kw">&gt;</span>
+   ...
+  <span class="kw">&lt;/article&gt;</span>
+  <span class="kw">&lt;article</span><span class="ot"> id=</span><span class="st">&quot;deleteTalkArticle&quot;</span><span class="ot"> class=</span><span class="st">&quot;list indented scroll&quot;</span><span class="kw">&gt;</span>
+   ...
+  <span class="kw">&lt;/article&gt;</span>
+ <span class="kw">&lt;/section&gt;</span>
+<span class="kw">&lt;/body&gt;</span></code></pre>
+</section><section id="htmltalktalk-edit.html-1" class="slide level2">
+<h2><span class="header-section-number">6.8</span> html/talk/talk-edit.html</h2>
+<figure>
+<img src="../img/demo-talk-edit.png" />
+</figure>
+</section><section id="htmltalktalk-edit.html-2" class="slide level2">
+<h2><span class="header-section-number">6.9</span> html/talk/talk-edit.html</h2>
+<figure>
+<img src="../img/demo-talk-delete.png" />
+</figure>
+</section><section id="jstalktalk-get.js" class="slide level2">
+<h2><span class="header-section-number">6.10</span> js/talk/talk-get.js</h2>
+<pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="fu">$$</span>(<span class="st">&#39;document&#39;</span>).<span class="fu">ready</span>(<span class="kw">function</span>(){
+
+ <span class="kw">var</span> talkId = util_urlParams[<span class="st">&quot;talkId&quot;</span>];
+
+ <span class="co">// get data from server</span>
+ <span class="fu">util_ajaxGet</span>(<span class="st">&#39;/talk/&#39;</span>+talkId, {}, <span class="kw">function</span>(json) {
+  <span class="kw">if</span>(!json || <span class="ot">json</span>.<span class="fu">error</span>) {
+   <span class="fu">util_errorNotification</span>(<span class="st">&#39;ERROR retrieving talk&#39;</span>, <span class="ot">json</span>.<span class="fu">error</span>);
+  } <span class="kw">else</span> {
+   <span class="kw">var</span> talk = json;
+   <span class="ot">console</span>.<span class="fu">log</span>(<span class="st">&#39;Talk retrieved&#39;</span>);
+   <span class="fu">drawTalk</span>(talk);
+  }
+ });
+
+ <span class="co">// draw data</span>
+ <span class="kw">var</span> drawTalk = <span class="kw">function</span>(talk) {
+  <span class="fu">$$</span>(<span class="st">&quot;#talkName&quot;</span>).<span class="fu">val</span>(<span class="ot">talk</span>.<span class="fu">talkName</span>);
+  ...
+ };
+});</code></pre>
+</section><section id="jstalktalk-update.js" class="slide level2">
+<h2><span class="header-section-number">6.11</span> js/talk/talk-update.js</h2>
+<pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="fu">$$</span>(<span class="st">&#39;#saveTalk&#39;</span>).<span class="fu">tap</span>(<span class="kw">function</span>(){
+
+ <span class="kw">var</span> talkId = util_urlParams[<span class="st">&quot;talkId&quot;</span>];
+
+ <span class="kw">var</span> data = {
+  <span class="dt">talkName</span>:        <span class="fu">$$</span>(<span class="st">&quot;#talkName&quot;</span>).<span class="fu">val</span>(),
+  ...
+ };
+
+ <span class="co">// send data to server</span>
+ <span class="fu">util_ajaxPut</span>(<span class="st">&#39;/talk/&#39;</span>+talkId, data, <span class="kw">function</span>(json) {
+  <span class="kw">if</span>(!json || <span class="ot">json</span>.<span class="fu">error</span>) {
+   <span class="fu">util_errorNotification</span>(<span class="st">&#39;ERROR saving talk&#39;</span>, <span class="ot">json</span>.<span class="fu">error</span>);
+  } <span class="kw">else</span> {
+   <span class="fu">util_successNotification</span>(<span class="st">&#39;Talk saved&#39;</span>, <span class="kw">function</span>() {
+    <span class="ot">window</span>.<span class="ot">location</span>.<span class="fu">replace</span>(<span class="st">&#39;talk-list.html&#39;</span>);
+   });
+  }
+ });
+});</code></pre>
+</section><section id="jstalktalk-delete.js" class="slide level2">
+<h2><span class="header-section-number">6.12</span> js/talk/talk-delete.js</h2>
+<pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="fu">$$</span>(<span class="st">&#39;#deleteTalk&#39;</span>).<span class="fu">tap</span>(<span class="kw">function</span>(){
+
+ <span class="kw">var</span> talkId = util_urlParams[<span class="st">&quot;talkId&quot;</span>];
+
+ <span class="co">// send data to server</span>
+ <span class="fu">util_ajaxDelete</span>(<span class="st">&#39;/talk/&#39;</span>+talkId, {}, <span class="kw">function</span>(json) {
+  <span class="kw">if</span>(!json || <span class="ot">json</span>.<span class="fu">error</span>) {
+   <span class="fu">util_errorNotification</span>(<span class="st">&#39;ERROR deleting talk&#39;</span>, <span class="ot">json</span>.<span class="fu">error</span>);
+  } <span class="kw">else</span> {
+   <span class="fu">util_successNotification</span>(<span class="st">&#39;Talk deleted&#39;</span>, <span class="kw">function</span>() {
+    <span class="ot">window</span>.<span class="ot">location</span>.<span class="fu">replace</span>(<span class="st">&#39;talk-list.html&#39;</span>);
+   });
+  }
+ });
+});</code></pre>
+</section><section id="htmltalktalk-list.html" class="slide level2">
+<h2><span class="header-section-number">6.13</span> html/talk/talk-list.html</h2>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;body</span><span class="ot"> class=</span><span class="st">&quot;app&quot;</span><span class="kw">&gt;</span>
+ <span class="kw">&lt;section</span><span class="ot"> id=</span><span class="st">&quot;main&quot;</span><span class="ot"> data-transition=</span><span class="st">&quot;&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;header</span><span class="ot"> data-title=</span><span class="st">&quot;Talks List&quot;</span><span class="ot"> class=</span><span class="st">&quot;extended&quot;</span><span class="kw">&gt;&lt;/header&gt;</span>
+  <span class="kw">&lt;footer&gt;</span>
+   <span class="kw">&lt;nav&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;talk-list.html&quot;</span><span class="ot"> data-icon=</span><span class="st">&quot;list&quot;</span><span class="ot"> class=</span><span class="st">&quot;active&quot;</span><span class="kw">&gt;&lt;/a&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;talk-add.html&quot;</span><span class="ot"> data-icon=</span><span class="st">&quot;plus&quot;</span><span class="kw">&gt;&lt;/a&gt;</span>
+   <span class="kw">&lt;/nav&gt;</span>
+  <span class="kw">&lt;/footer&gt;</span>
+  <span class="kw">&lt;article</span><span class="ot"> id=</span><span class="st">&quot;main-article&quot;</span><span class="ot"> class=</span><span class="st">&quot;active list indented scroll&quot;</span><span class="kw">&gt;</span>
+   <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;form&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;fieldset</span><span class="ot"> data-icon=</span><span class="st">&quot;search&quot;</span><span class="kw">&gt;</span>
+     <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;search&quot;</span><span class="ot"> placeholder=</span><span class="st">&quot;Search...&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;/fieldset&gt;</span>
+   <span class="kw">&lt;/div&gt;</span>
+   <span class="kw">&lt;ul</span><span class="ot"> id=</span><span class="st">&quot;talks&quot;</span><span class="kw">&gt;&lt;/ul&gt;</span>
+  <span class="kw">&lt;/article&gt;</span>
+ <span class="kw">&lt;/section&gt;</span>
+<span class="kw">&lt;/body&gt;</span></code></pre>
+</section><section id="htmltalktalk-list.html-1" class="slide level2">
+<h2><span class="header-section-number">6.14</span> html/talk/talk-list.html</h2>
+<figure>
+<img src="../img/demo-talk-list.png" />
+</figure>
+</section><section id="htmltalktalk-list.html-2" class="slide level2">
+<h2><span class="header-section-number">6.15</span> html/talk/talk-list.html</h2>
+<figure>
+<img src="../img/demo-talk-list-search.png" />
+</figure>
+</section><section id="jstalktalk-list.js" class="slide level2">
+<h2><span class="header-section-number">6.16</span> js/talk/talk-list.js</h2>
+<pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span class="fu">$$</span>(<span class="st">&#39;document&#39;</span>).<span class="fu">ready</span>(<span class="kw">function</span>(){
+
+ <span class="co">// get data from server</span>
+ <span class="fu">util_ajaxGet</span>(<span class="st">&#39;/talk&#39;</span>, {}, <span class="kw">function</span>(json) {
+  <span class="kw">if</span>(!json || <span class="ot">json</span>.<span class="fu">error</span>) {
+   <span class="fu">util_errorNotification</span>(<span class="st">&#39;ERROR retrieving talks&#39;</span>, <span class="ot">json</span>.<span class="fu">error</span>);
+  } <span class="kw">else</span> {
+   <span class="fu">drawTalks</span>(json);
+  }
+ });
+
+ <span class="co">// draw data</span>
+ <span class="kw">var</span> drawTalks = <span class="kw">function</span>(talks) {
+  <span class="kw">for</span> (<span class="kw">var</span> i = <span class="dv">0</span>; i &lt; <span class="ot">talks</span>.<span class="fu">length</span>; i++) {
+   <span class="kw">var</span> talk = talks[i];
+   <span class="fu">$$</span>(<span class="st">&quot;#talks&quot;</span>).<span class="fu">append</span>(
+    <span class="st">&#39;&lt;li data-action=&quot;search&quot; class=&quot;selectable&quot;&gt;&#39;</span>+
+     <span class="st">&#39;&lt;a href=&quot;talk-edit.html?talkId=&#39;</span>+<span class="ot">talk</span>.<span class="fu">_id</span>+<span class="st">&#39;&quot;&gt;&#39;</span>+
+      <span class="st">&#39;&lt;strong&gt;&#39;</span>+<span class="ot">talk</span>.<span class="fu">talkName</span>+<span class="st">&#39;&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;&#39;</span>);
+  }
+ };
+});</code></pre>
+</section></section>
+<section><section id="demo" class="titleslide slide level1"><h1><span class="header-section-number">7</span> Demo</h1></section></section>
+<section><section id="alguna-pregunta" class="titleslide slide level1"><h1><span class="header-section-number">8</span> ¿Alguna pregunta?</h1></section></section>
+    </div>
+  </div>
+
+  <script src="../lib/reveal.js-master/lib/js/head.min.js"></script>
+  <script src="../lib/reveal.js-master/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+      });
+    </script>
+  </body>
+</html>
